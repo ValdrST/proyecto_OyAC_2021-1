@@ -1,0 +1,1069 @@
+Analysis & Synthesis report for pipeline
+Tue Jan 26 23:25:17 2021
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: BUSMUX:inst40
+ 15. Parameter Settings for User Entity Instance: BUSMUX:inst27
+ 16. Parameter Settings for User Entity Instance: BUSMUX:inst9999
+ 17. Parameter Settings for User Entity Instance: BUSMUX:inst45
+ 18. Parameter Settings for User Entity Instance: BUSMUX:inst44
+ 19. Parameter Settings for User Entity Instance: BUSMUX:inst38
+ 20. Parameter Settings for User Entity Instance: BUSMUX:inst35
+ 21. Parameter Settings for User Entity Instance: BUSMUX:inst46
+ 22. Parameter Settings for User Entity Instance: BUSMUX:inst39
+ 23. Parameter Settings for User Entity Instance: BUSMUX:inst43
+ 24. Parameter Settings for User Entity Instance: BUSMUX:inst9
+ 25. Parameter Settings for User Entity Instance: BUSMUX:inst36
+ 26. Parameter Settings for User Entity Instance: BUSMUX:inst50
+ 27. Parameter Settings for User Entity Instance: BUSMUX:inst42
+ 28. Parameter Settings for User Entity Instance: BUSMUX:inst37
+ 29. Parameter Settings for User Entity Instance: BUSMUX:inst32
+ 30. Parameter Settings for User Entity Instance: BUSMUX:inst51
+ 31. Parameter Settings for User Entity Instance: BUSMUX:inst28
+ 32. Parameter Settings for User Entity Instance: BUSMUX:inst25
+ 33. Parameter Settings for User Entity Instance: BUSMUX:inst19
+ 34. Parameter Settings for User Entity Instance: BUSMUX:inst26
+ 35. Parameter Settings for User Entity Instance: BUSMUX:inst12
+ 36. Parameter Settings for User Entity Instance: BUSMUX:inst29
+ 37. Parameter Settings for User Entity Instance: BUSMUX:inst31
+ 38. Parameter Settings for User Entity Instance: BUSMUX:inst21
+ 39. Parameter Settings for User Entity Instance: BUSMUX:inst30
+ 40. Post-Synthesis Netlist Statistics for Top Partition
+ 41. Elapsed Time Per Partition
+ 42. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Jan 26 23:25:17 2021       ;
+; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                      ; pipeline                                    ;
+; Top-level Entity Name              ; pipeline                                    ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 2,100                                       ;
+;     Total combinational functions  ; 1,195                                       ;
+;     Dedicated logic registers      ; 1,080                                       ;
+; Total registers                    ; 1080                                        ;
+; Total pins                         ; 152                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M08DAF484C8G     ;                    ;
+; Top-level entity name                                            ; pipeline           ; pipeline           ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.3%      ;
+;     Processor 3            ;   0.2%      ;
+;     Processor 4            ;   0.2%      ;
+;     Processor 5            ;   0.2%      ;
+;     Processor 6            ;   0.2%      ;
+;     Processor 7            ;   0.2%      ;
+;     Processor 8            ;   0.2%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                      ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                                            ; Library ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------+
+; u_anticipaciones.vhd             ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/u_anticipaciones.vhd ;         ;
+; u_detenciones.vhd                ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/u_detenciones.vhd    ;         ;
+; incrementador.vhdl               ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/incrementador.vhdl   ;         ;
+; registro_pc.vhd                  ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_pc.vhd      ;         ;
+; memoria_inst.vhd                 ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/memoria_inst.vhd     ;         ;
+; pipeline.bdf                     ; yes             ; User Block Diagram/Schematic File  ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/pipeline.bdf         ;         ;
+; registro_inst.vhd                ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_inst.vhd    ;         ;
+; ext_signo.vhd                    ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ext_signo.vhd        ;         ;
+; mux_dir.vhd                      ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_dir.vhd          ;         ;
+; sumador.vhd                      ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/sumador.vhd          ;         ;
+; memoria_datos.vhd                ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/memoria_datos.vhd    ;         ;
+; mux_src.vhd                      ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_src.vhd          ;         ;
+; registros.bdf                    ; yes             ; User Block Diagram/Schematic File  ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registros.bdf        ;         ;
+; mux_regs.vhd                     ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_regs.vhd         ;         ;
+; deco_regw.vhd                    ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/deco_regw.vhd        ;         ;
+; u_control.vhd                    ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/u_control.vhd        ;         ;
+; reg_acoplo_3.vhd                 ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd     ;         ;
+; upa.vhd                          ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd              ;         ;
+; mux_result.vhd                   ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_result.vhd       ;         ;
+; ccr.vhd                          ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd              ;         ;
+; branch.vhd                       ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/branch.vhd           ;         ;
+; registro_1.vhd                   ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_1.vhd       ;         ;
+; reg_acoplo_4.vhd                 ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_4.vhd     ;         ;
+; registro_esp.vhdl                ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_esp.vhdl    ;         ;
+; registro_pc2.vhd                 ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_pc2.vhd     ;         ;
+; busmux.tdf                       ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf                                                              ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                                             ;         ;
+; lpm_mux.tdf                      ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.tdf                                                             ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                                          ;         ;
+; muxlut.inc                       ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/muxlut.inc                                                              ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/bypassff.inc                                                            ;         ;
+; altshift.inc                     ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altshift.inc                                                            ;         ;
+; db/mux_t5c.tdf                   ; yes             ; Auto-Generated Megafunction        ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/db/mux_t5c.tdf       ;         ;
+; db/mux_j7c.tdf                   ; yes             ; Auto-Generated Megafunction        ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/db/mux_j7c.tdf       ;         ;
+; db/mux_06c.tdf                   ; yes             ; Auto-Generated Megafunction        ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/db/mux_06c.tdf       ;         ;
+; db/mux_u5c.tdf                   ; yes             ; Auto-Generated Megafunction        ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/db/mux_u5c.tdf       ;         ;
+; db/mux_v5c.tdf                   ; yes             ; Auto-Generated Megafunction        ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/db/mux_v5c.tdf       ;         ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 2,100       ;
+;                                             ;             ;
+; Total combinational functions               ; 1195        ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 877         ;
+;     -- 3 input functions                    ; 229         ;
+;     -- <=2 input functions                  ; 89          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 1131        ;
+;     -- arithmetic mode                      ; 64          ;
+;                                             ;             ;
+; Total registers                             ; 1080        ;
+;     -- Dedicated logic registers            ; 1080        ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 152         ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; RELOJ~input ;
+; Maximum fan-out                             ; 1054        ;
+; Total fan-out                               ; 8032        ;
+; Average fan-out                             ; 3.11        ;
++---------------------------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                        ;
++-----------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                             ; Entity Name      ; Library Name ;
++-----------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------+------------------+--------------+
+; |pipeline                         ; 1195 (2)            ; 1080 (0)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 152  ; 0            ; 0          ; |pipeline                                                       ; pipeline         ; work         ;
+;    |branch:inst22|                ; 9 (9)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|branch:inst22                                         ; branch           ; work         ;
+;    |busmux:inst21|                ; 4 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst21                                         ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 4 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst21|lpm_mux:$00000                          ; lpm_mux          ; work         ;
+;          |mux_v5c:auto_generated| ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst21|lpm_mux:$00000|mux_v5c:auto_generated   ; mux_v5c          ; work         ;
+;    |busmux:inst27|                ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst27                                         ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst27|lpm_mux:$00000                          ; lpm_mux          ; work         ;
+;          |mux_t5c:auto_generated| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst27|lpm_mux:$00000|mux_t5c:auto_generated   ; mux_t5c          ; work         ;
+;    |busmux:inst28|                ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst28                                         ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst28|lpm_mux:$00000                          ; lpm_mux          ; work         ;
+;          |mux_t5c:auto_generated| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst28|lpm_mux:$00000|mux_t5c:auto_generated   ; mux_t5c          ; work         ;
+;    |busmux:inst29|                ; 2 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst29                                         ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 2 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst29|lpm_mux:$00000                          ; lpm_mux          ; work         ;
+;          |mux_06c:auto_generated| ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst29|lpm_mux:$00000|mux_06c:auto_generated   ; mux_06c          ; work         ;
+;    |busmux:inst30|                ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst30                                         ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst30|lpm_mux:$00000                          ; lpm_mux          ; work         ;
+;          |mux_u5c:auto_generated| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst30|lpm_mux:$00000|mux_u5c:auto_generated   ; mux_u5c          ; work         ;
+;    |busmux:inst31|                ; 4 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst31                                         ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 4 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst31|lpm_mux:$00000                          ; lpm_mux          ; work         ;
+;          |mux_06c:auto_generated| ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst31|lpm_mux:$00000|mux_06c:auto_generated   ; mux_06c          ; work         ;
+;    |busmux:inst32|                ; 2 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst32                                         ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 2 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst32|lpm_mux:$00000                          ; lpm_mux          ; work         ;
+;          |mux_v5c:auto_generated| ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst32|lpm_mux:$00000|mux_v5c:auto_generated   ; mux_v5c          ; work         ;
+;    |busmux:inst35|                ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst35                                         ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst35|lpm_mux:$00000                          ; lpm_mux          ; work         ;
+;          |mux_t5c:auto_generated| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst35|lpm_mux:$00000|mux_t5c:auto_generated   ; mux_t5c          ; work         ;
+;    |busmux:inst38|                ; 53 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst38                                         ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 53 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst38|lpm_mux:$00000                          ; lpm_mux          ; work         ;
+;          |mux_j7c:auto_generated| ; 53 (53)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst38|lpm_mux:$00000|mux_j7c:auto_generated   ; mux_j7c          ; work         ;
+;    |busmux:inst40|                ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst40                                         ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst40|lpm_mux:$00000                          ; lpm_mux          ; work         ;
+;          |mux_t5c:auto_generated| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst40|lpm_mux:$00000|mux_t5c:auto_generated   ; mux_t5c          ; work         ;
+;    |busmux:inst45|                ; 2 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst45                                         ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 2 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst45|lpm_mux:$00000                          ; lpm_mux          ; work         ;
+;          |mux_t5c:auto_generated| ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst45|lpm_mux:$00000|mux_t5c:auto_generated   ; mux_t5c          ; work         ;
+;    |busmux:inst50|                ; 16 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst50                                         ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 16 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst50|lpm_mux:$00000                          ; lpm_mux          ; work         ;
+;          |mux_j7c:auto_generated| ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst50|lpm_mux:$00000|mux_j7c:auto_generated   ; mux_j7c          ; work         ;
+;    |busmux:inst51|                ; 16 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst51                                         ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 16 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst51|lpm_mux:$00000                          ; lpm_mux          ; work         ;
+;          |mux_j7c:auto_generated| ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst51|lpm_mux:$00000|mux_j7c:auto_generated   ; mux_j7c          ; work         ;
+;    |busmux:inst9999|              ; 16 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst9999                                       ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 16 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst9999|lpm_mux:$00000                        ; lpm_mux          ; work         ;
+;          |mux_j7c:auto_generated| ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst9999|lpm_mux:$00000|mux_j7c:auto_generated ; mux_j7c          ; work         ;
+;    |busmux:inst9|                 ; 3 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst9                                          ; busmux           ; work         ;
+;       |lpm_mux:$00000|            ; 3 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst9|lpm_mux:$00000                           ; lpm_mux          ; work         ;
+;          |mux_u5c:auto_generated| ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|busmux:inst9|lpm_mux:$00000|mux_u5c:auto_generated    ; mux_u5c          ; work         ;
+;    |ccr:inst|                     ; 9 (9)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|ccr:inst                                              ; ccr              ; work         ;
+;    |incrementador:inst7|          ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|incrementador:inst7                                   ; incrementador    ; work         ;
+;    |memoria_datos:inst41|         ; 624 (624)           ; 832 (832)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|memoria_datos:inst41                                  ; memoria_datos    ; work         ;
+;    |memoria_inst:inst1|           ; 24 (24)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|memoria_inst:inst1                                    ; memoria_inst     ; work         ;
+;    |mux_result:inst20|            ; 32 (32)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|mux_result:inst20                                     ; mux_result       ; work         ;
+;    |mux_src:inst202|              ; 54 (54)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|mux_src:inst202                                       ; mux_src          ; work         ;
+;    |reg_acoplo_3:inst16|          ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|reg_acoplo_3:inst16                                   ; reg_acoplo_3     ; work         ;
+;    |reg_acoplo_4:inst107|         ; 0 (0)               ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|reg_acoplo_4:inst107                                  ; reg_acoplo_4     ; work         ;
+;    |registro_1:inst100|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_1:inst100                                    ; registro_1       ; work         ;
+;    |registro_1:inst101|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_1:inst101                                    ; registro_1       ; work         ;
+;    |registro_1:inst102|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_1:inst102                                    ; registro_1       ; work         ;
+;    |registro_1:inst103|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_1:inst103                                    ; registro_1       ; work         ;
+;    |registro_1:inst104|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_1:inst104                                    ; registro_1       ; work         ;
+;    |registro_1:inst105|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_1:inst105                                    ; registro_1       ; work         ;
+;    |registro_1:inst106|           ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_1:inst106                                    ; registro_1       ; work         ;
+;    |registro_inst:inst8|          ; 3 (3)               ; 12 (12)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_inst:inst8                                   ; registro_inst    ; work         ;
+;    |registro_pc2:inst34|          ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_pc2:inst34                                   ; registro_pc2     ; work         ;
+;    |registro_pc:inst14|           ; 17 (17)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_pc:inst14                                    ; registro_pc      ; work         ;
+;    |registro_pc:inst15|           ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_pc:inst15                                    ; registro_pc      ; work         ;
+;    |registro_pc:inst23|           ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_pc:inst23                                    ; registro_pc      ; work         ;
+;    |registro_pc:inst24|           ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_pc:inst24                                    ; registro_pc      ; work         ;
+;    |registro_pc:inst6|            ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_pc:inst6                                     ; registro_pc      ; work         ;
+;    |registro_pc:inst700|          ; 22 (22)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registro_pc:inst700                                   ; registro_pc      ; work         ;
+;    |registros:inst700666|         ; 22 (0)              ; 96 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registros:inst700666                                  ; registros        ; work         ;
+;       |deco_regw:inst1000|        ; 6 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registros:inst700666|deco_regw:inst1000               ; deco_regw        ; work         ;
+;       |mux_regs:inst|             ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registros:inst700666|mux_regs:inst                    ; mux_regs         ; work         ;
+;       |registro_esp:ACCA|         ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registros:inst700666|registro_esp:ACCA                ; registro_esp     ; work         ;
+;       |registro_esp:ACCB|         ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registros:inst700666|registro_esp:ACCB                ; registro_esp     ; work         ;
+;       |registro_esp:AUX|          ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registros:inst700666|registro_esp:AUX                 ; registro_esp     ; work         ;
+;       |registro_esp:IX|           ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registros:inst700666|registro_esp:IX                  ; registro_esp     ; work         ;
+;       |registro_esp:IY|           ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registros:inst700666|registro_esp:IY                  ; registro_esp     ; work         ;
+;       |registro_esp:SP|           ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|registros:inst700666|registro_esp:SP                  ; registro_esp     ; work         ;
+;    |sumador:inst11|               ; 45 (45)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|sumador:inst11                                        ; sumador          ; work         ;
+;    |u_anticipaciones:inst17|      ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|u_anticipaciones:inst17                               ; u_anticipaciones ; work         ;
+;    |u_control:inst4|              ; 34 (34)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|u_control:inst4                                       ; u_control        ; work         ;
+;    |u_detenciones:inst49|         ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|u_detenciones:inst49                                  ; u_detenciones    ; work         ;
+;    |upa:inst33|                   ; 152 (152)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |pipeline|upa:inst33                                            ; upa              ; work         ;
++-----------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------+------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; ccr:inst|ni                                         ; ccr:inst|ni         ; yes                    ;
+; ccr:inst|zi                                         ; ccr:inst|ni         ; yes                    ;
+; ccr:inst|vi                                         ; ccr:inst|ni         ; yes                    ;
+; ccr:inst|ci                                         ; ccr:inst|ci         ; yes                    ;
+; ccr:inst|hi                                         ; ccr:inst|Equal2     ; yes                    ;
+; upa:inst33|opres[15]                                ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[1]                                 ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[2]                                 ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[3]                                 ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[4]                                 ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[5]                                 ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[6]                                 ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[7]                                 ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[8]                                 ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[9]                                 ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[10]                                ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[11]                                ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[12]                                ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[13]                                ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[14]                                ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[0]                                 ; upa:inst33|Equal0   ; yes                    ;
+; upa:inst33|opres[16]                                ; upa:inst33|Equal0   ; yes                    ;
+; Number of user-specified and inferred latches = 22  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                            ;
++-------------------------------------------------+---------------------------------------------+
+; Register name                                   ; Reason for Removal                          ;
++-------------------------------------------------+---------------------------------------------+
+; reg_acoplo_3:inst16|selop[3]                    ; Stuck at GND due to stuck port data_in      ;
+; reg_acoplo_3:inst16|selresult[1]                ; Stuck at GND due to stuck port data_in      ;
+; reg_acoplo_3:inst16|selbranch[0]                ; Stuck at GND due to stuck port data_in      ;
+; reg_acoplo_3:inst16|seldirw[0]                  ; Stuck at GND due to stuck port data_in      ;
+; reg_acoplo_4:inst107|seldirw[0]                 ; Stuck at GND due to stuck port data_in      ;
+; reg_acoplo_3:inst16|selfalgs[3]                 ; Merged with reg_acoplo_3:inst16|selfalgs[2] ;
+; reg_acoplo_3:inst16|seldirw[1]                  ; Merged with reg_acoplo_3:inst16|memw        ;
+; registro_inst:inst8|valor_interno[4..15,24..31] ; Stuck at GND due to stuck port data_in      ;
+; Total Number of Removed Registers = 27          ;                                             ;
++-------------------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                  ;
++----------------------------------+---------------------------+-------------------------------------------------------------------------------+
+; Register name                    ; Reason for Removal        ; Registers Removed due to This Register                                        ;
++----------------------------------+---------------------------+-------------------------------------------------------------------------------+
+; reg_acoplo_3:inst16|selbranch[0] ; Stuck at GND              ; registro_inst:inst8|valor_interno[31], registro_inst:inst8|valor_interno[30], ;
+;                                  ; due to stuck port data_in ; registro_inst:inst8|valor_interno[29], registro_inst:inst8|valor_interno[28], ;
+;                                  ;                           ; registro_inst:inst8|valor_interno[27], registro_inst:inst8|valor_interno[26], ;
+;                                  ;                           ; registro_inst:inst8|valor_interno[25], registro_inst:inst8|valor_interno[24]  ;
+; reg_acoplo_3:inst16|seldirw[0]   ; Stuck at GND              ; reg_acoplo_4:inst107|seldirw[0]                                               ;
+;                                  ; due to stuck port data_in ;                                                                               ;
++----------------------------------+---------------------------+-------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1080  ;
+; Number of registers using Synchronous Clear  ; 24    ;
+; Number of registers using Synchronous Load   ; 24    ;
+; Number of registers using Asynchronous Clear ; 248   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 928   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; reg_acoplo_3:inst16|vf                 ; 4       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+; 7:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; Yes        ; |pipeline|registro_pc:inst14|valor_interno[2]                                 ;
+; 6:1                ; 12 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |pipeline|registro_pc:inst14|valor_interno[7]                                 ;
+; 18:1               ; 12 bits   ; 144 LEs       ; 48 LEs               ; 96 LEs                 ; Yes        ; |pipeline|registro_pc:inst700|valor_interno[7]                                ;
+; 17:1               ; 4 bits    ; 44 LEs        ; 16 LEs               ; 28 LEs                 ; Yes        ; |pipeline|registro_pc:inst700|valor_interno[0]                                ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |pipeline|mux_dir:inst10|Mux4                                                 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |pipeline|mux_dir:inst10|Mux12                                                ;
+; 8:1                ; 14 bits   ; 70 LEs        ; 56 LEs               ; 14 LEs                 ; No         ; |pipeline|upa:inst33|opres[1]                                                 ;
+; 23:1               ; 16 bits   ; 240 LEs       ; 64 LEs               ; 176 LEs                ; No         ; |pipeline|busmux:inst38|lpm_mux:$00000|mux_j7c:auto_generated|result_node[11] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst40 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 1     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst27 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 1     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst9999 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst45 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 1     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst44 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 1     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst38 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 16    ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst35 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 1     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst46 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 4     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst39 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 16    ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst43 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 1     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst9 ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; WIDTH          ; 2     ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst36 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 2     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst50 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 16    ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst42 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 16    ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst37 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 1     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst32 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 3     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst51 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 16    ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst28 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 1     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst25 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 1     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst19 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 1     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst26 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 3     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst12 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 2     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst29 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 4     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst31 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 4     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst21 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 3     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst30 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 2     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 152                         ;
+; cycloneiii_ff         ; 1080                        ;
+;     CLR               ; 128                         ;
+;     CLR SCLR SLD      ; 24                          ;
+;     ENA               ; 832                         ;
+;     ENA CLR           ; 96                          ;
+; cycloneiii_lcell_comb ; 1199                        ;
+;     arith             ; 64                          ;
+;         2 data inputs ; 17                          ;
+;         3 data inputs ; 47                          ;
+;     normal            ; 1135                        ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 21                          ;
+;         2 data inputs ; 52                          ;
+;         3 data inputs ; 182                         ;
+;         4 data inputs ; 877                         ;
+;                       ;                             ;
+; Max LUT depth         ; 15.30                       ;
+; Average LUT depth     ; 8.07                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Tue Jan 26 23:25:02 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pipeline -c pipeline
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file u_anticipaciones.vhd
+    Info (12022): Found design unit 1: u_anticipaciones-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/u_anticipaciones.vhd Line: 15
+    Info (12023): Found entity 1: u_anticipaciones File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/u_anticipaciones.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file u_detenciones.vhd
+    Info (12022): Found design unit 1: u_detenciones-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/u_detenciones.vhd Line: 37
+    Info (12023): Found entity 1: u_detenciones File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/u_detenciones.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file incrementador.vhdl
+    Info (12022): Found design unit 1: incrementador-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/incrementador.vhdl Line: 11
+    Info (12023): Found entity 1: incrementador File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/incrementador.vhdl Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file mux_pc.vhdl
+    Info (12022): Found design unit 1: mux_pc-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_pc.vhdl Line: 11
+    Info (12023): Found entity 1: mux_pc File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_pc.vhdl Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file registro_pc.vhd
+    Info (12022): Found design unit 1: registro_pc-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_pc.vhd Line: 11
+    Info (12023): Found entity 1: registro_pc File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_pc.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file memoria_inst.vhd
+    Info (12022): Found design unit 1: memoria_inst-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/memoria_inst.vhd Line: 14
+    Info (12023): Found entity 1: memoria_inst File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/memoria_inst.vhd Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file pipeline.bdf
+    Info (12023): Found entity 1: pipeline
+Info (12021): Found 2 design units, including 1 entities, in source file registro_inst.vhd
+    Info (12022): Found design unit 1: registro_inst-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_inst.vhd Line: 13
+    Info (12023): Found entity 1: registro_inst File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_inst.vhd Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file etapa1.bdf
+    Info (12023): Found entity 1: etapa1
+Info (12021): Found 2 design units, including 1 entities, in source file ext_signo.vhd
+    Info (12022): Found design unit 1: ext_signo-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ext_signo.vhd Line: 9
+    Info (12023): Found entity 1: ext_signo File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ext_signo.vhd Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file etapa2.bdf
+    Info (12023): Found entity 1: etapa2
+Info (12021): Found 2 design units, including 1 entities, in source file mux_dir.vhd
+    Info (12022): Found design unit 1: mux_dir-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_dir.vhd Line: 12
+    Info (12023): Found entity 1: mux_dir File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_dir.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file sumador.vhd
+    Info (12022): Found design unit 1: sumador-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/sumador.vhd Line: 14
+    Info (12023): Found entity 1: sumador File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/sumador.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file memoria_datos.vhd
+    Info (12022): Found design unit 1: memoria_datos-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/memoria_datos.vhd Line: 17
+    Info (12023): Found entity 1: memoria_datos File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/memoria_datos.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file mux_src.vhd
+    Info (12022): Found design unit 1: mux_src-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_src.vhd Line: 15
+    Info (12023): Found entity 1: mux_src File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_src.vhd Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file registros.bdf
+    Info (12023): Found entity 1: registros
+Info (12021): Found 2 design units, including 1 entities, in source file mux_regs.vhd
+    Info (12022): Found design unit 1: mux_regs-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_regs.vhd Line: 16
+    Info (12023): Found entity 1: mux_regs File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_regs.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file deco_regw.vhd
+    Info (12022): Found design unit 1: deco_regw-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/deco_regw.vhd Line: 14
+    Info (12023): Found entity 1: deco_regw File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/deco_regw.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file u_control.vhd
+    Info (12022): Found design unit 1: u_control-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/u_control.vhd Line: 29
+    Info (12023): Found entity 1: u_control File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/u_control.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file reg_acoplo_3.vhd
+    Info (12022): Found design unit 1: reg_acoplo_3-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 29
+    Info (12023): Found entity 1: reg_acoplo_3 File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file upa.vhd
+    Info (12022): Found design unit 1: upa-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 20
+    Info (12023): Found entity 1: upa File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file mux_1.vhd
+    Info (12022): Found design unit 1: mux_1-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_1.vhd Line: 11
+    Info (12023): Found entity 1: mux_1 File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_1.vhd Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file etapa3.bdf
+    Info (12023): Found entity 1: etapa3
+Info (12021): Found 2 design units, including 1 entities, in source file mux_result.vhd
+    Info (12022): Found design unit 1: mux_result-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_result.vhd Line: 14
+    Info (12023): Found entity 1: mux_result File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_result.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ccr.vhd
+    Info (12022): Found design unit 1: ccr-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 20
+    Info (12023): Found entity 1: ccr File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file branch.vhd
+    Info (12022): Found design unit 1: branch-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/branch.vhd Line: 16
+    Info (12023): Found entity 1: branch File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/branch.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file registro_1.vhd
+    Info (12022): Found design unit 1: registro_1-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_1.vhd Line: 11
+    Info (12023): Found entity 1: registro_1 File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file reg_acoplo_4.vhd
+    Info (12022): Found design unit 1: reg_acoplo_4-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_4.vhd Line: 15
+    Info (12023): Found entity 1: reg_acoplo_4 File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_4.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux_dirw.vhd
+    Info (12022): Found design unit 1: mux_dirw-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_dirw.vhd Line: 10
+    Info (12023): Found entity 1: mux_dirw File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/mux_dirw.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file registro_esp.vhdl
+    Info (12022): Found design unit 1: registro_esp-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_esp.vhdl Line: 12
+    Info (12023): Found entity 1: registro_esp File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_esp.vhdl Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file registro_pc2.vhd
+    Info (12022): Found design unit 1: registro_pc2-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_pc2.vhd Line: 11
+    Info (12023): Found entity 1: registro_pc2 File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/registro_pc2.vhd Line: 4
+Info (12127): Elaborating entity "pipeline" for the top level hierarchy
+Warning (275011): Block or symbol "BUSMUX" of instance "inst25" overlaps another block or symbol
+Info (12128): Elaborating entity "registro_1" for hierarchy "registro_1:inst101"
+Info (12128): Elaborating entity "ccr" for hierarchy "ccr:inst"
+Warning (10631): VHDL Process Statement warning at ccr.vhd(29): inferring latch(es) for signal or variable "ni", which holds its previous value in one or more paths through the process File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 29
+Warning (10631): VHDL Process Statement warning at ccr.vhd(29): inferring latch(es) for signal or variable "zi", which holds its previous value in one or more paths through the process File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 29
+Warning (10631): VHDL Process Statement warning at ccr.vhd(29): inferring latch(es) for signal or variable "vi", which holds its previous value in one or more paths through the process File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 29
+Warning (10631): VHDL Process Statement warning at ccr.vhd(29): inferring latch(es) for signal or variable "ci", which holds its previous value in one or more paths through the process File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 29
+Warning (10631): VHDL Process Statement warning at ccr.vhd(29): inferring latch(es) for signal or variable "hi", which holds its previous value in one or more paths through the process File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 29
+Warning (10631): VHDL Process Statement warning at ccr.vhd(29): inferring latch(es) for signal or variable "ii", which holds its previous value in one or more paths through the process File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 29
+Info (10041): Inferred latch for "ii" at ccr.vhd(29) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 29
+Info (10041): Inferred latch for "hi" at ccr.vhd(29) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 29
+Info (10041): Inferred latch for "ci" at ccr.vhd(29) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 29
+Info (10041): Inferred latch for "vi" at ccr.vhd(29) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 29
+Info (10041): Inferred latch for "zi" at ccr.vhd(29) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 29
+Info (10041): Inferred latch for "ni" at ccr.vhd(29) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 29
+Info (12128): Elaborating entity "upa" for hierarchy "upa:inst33"
+Warning (10631): VHDL Process Statement warning at upa.vhd(23): inferring latch(es) for signal or variable "opres", which holds its previous value in one or more paths through the process File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[0]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[1]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[2]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[3]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[4]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[5]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[6]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[7]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[8]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[9]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[10]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[11]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[12]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[13]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[14]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[15]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (10041): Inferred latch for "opres[16]" at upa.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "BUSMUX:inst40"
+Info (12130): Elaborated megafunction instantiation "BUSMUX:inst40"
+Info (12133): Instantiated megafunction "BUSMUX:inst40" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "1"
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "BUSMUX:inst40|lpm_mux:$00000" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "BUSMUX:inst40|lpm_mux:$00000", which is child of megafunction instantiation "BUSMUX:inst40" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_t5c.tdf
+    Info (12023): Found entity 1: mux_t5c File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/db/mux_t5c.tdf Line: 23
+Info (12128): Elaborating entity "mux_t5c" for hierarchy "BUSMUX:inst40|lpm_mux:$00000|mux_t5c:auto_generated" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+Info (12128): Elaborating entity "reg_acoplo_3" for hierarchy "reg_acoplo_3:inst16"
+Info (12128): Elaborating entity "u_detenciones" for hierarchy "u_detenciones:inst49"
+Warning (10492): VHDL Process Statement warning at u_detenciones.vhd(62): signal "Branch" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/u_detenciones.vhd Line: 62
+Info (12128): Elaborating entity "reg_acoplo_4" for hierarchy "reg_acoplo_4:inst107"
+Info (12128): Elaborating entity "branch" for hierarchy "branch:inst22"
+Info (12128): Elaborating entity "u_control" for hierarchy "u_control:inst4"
+Info (12128): Elaborating entity "registro_inst" for hierarchy "registro_inst:inst8"
+Info (12128): Elaborating entity "memoria_inst" for hierarchy "memoria_inst:inst1"
+Warning (10492): VHDL Process Statement warning at memoria_inst.vhd(50): signal "memoria" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/memoria_inst.vhd Line: 50
+Warning (10873): Using initial value X (don't care) for net "memoria[16..50]" at memoria_inst.vhd(17) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/memoria_inst.vhd Line: 17
+Info (12128): Elaborating entity "registro_pc2" for hierarchy "registro_pc2:inst34"
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "BUSMUX:inst9999"
+Info (12130): Elaborated megafunction instantiation "BUSMUX:inst9999"
+Info (12133): Instantiated megafunction "BUSMUX:inst9999" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "16"
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "BUSMUX:inst9999|lpm_mux:$00000" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "BUSMUX:inst9999|lpm_mux:$00000", which is child of megafunction instantiation "BUSMUX:inst9999" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_j7c.tdf
+    Info (12023): Found entity 1: mux_j7c File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/db/mux_j7c.tdf Line: 23
+Info (12128): Elaborating entity "mux_j7c" for hierarchy "BUSMUX:inst9999|lpm_mux:$00000|mux_j7c:auto_generated" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+Info (12128): Elaborating entity "incrementador" for hierarchy "incrementador:inst7"
+Info (12128): Elaborating entity "registro_pc" for hierarchy "registro_pc:inst24"
+Info (12128): Elaborating entity "mux_result" for hierarchy "mux_result:inst20"
+Info (12128): Elaborating entity "mux_dir" for hierarchy "mux_dir:inst10"
+Info (12128): Elaborating entity "sumador" for hierarchy "sumador:inst11"
+Info (12128): Elaborating entity "registros" for hierarchy "registros:inst700666"
+Info (12128): Elaborating entity "registro_esp" for hierarchy "registros:inst700666|registro_esp:ACCA"
+Info (12128): Elaborating entity "deco_regw" for hierarchy "registros:inst700666|deco_regw:inst1000"
+Info (12128): Elaborating entity "mux_regs" for hierarchy "registros:inst700666|mux_regs:inst"
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "BUSMUX:inst46"
+Info (12130): Elaborated megafunction instantiation "BUSMUX:inst46"
+Info (12133): Instantiated megafunction "BUSMUX:inst46" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "4"
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "BUSMUX:inst46|lpm_mux:$00000" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "BUSMUX:inst46|lpm_mux:$00000", which is child of megafunction instantiation "BUSMUX:inst46" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_06c.tdf
+    Info (12023): Found entity 1: mux_06c File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/db/mux_06c.tdf Line: 23
+Info (12128): Elaborating entity "mux_06c" for hierarchy "BUSMUX:inst46|lpm_mux:$00000|mux_06c:auto_generated" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "BUSMUX:inst39"
+Info (12130): Elaborated megafunction instantiation "BUSMUX:inst39"
+Info (12133): Instantiated megafunction "BUSMUX:inst39" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "16"
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "BUSMUX:inst9"
+Info (12130): Elaborated megafunction instantiation "BUSMUX:inst9"
+Info (12133): Instantiated megafunction "BUSMUX:inst9" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "2"
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "BUSMUX:inst9|lpm_mux:$00000" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "BUSMUX:inst9|lpm_mux:$00000", which is child of megafunction instantiation "BUSMUX:inst9" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_u5c.tdf
+    Info (12023): Found entity 1: mux_u5c File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/db/mux_u5c.tdf Line: 23
+Info (12128): Elaborating entity "mux_u5c" for hierarchy "BUSMUX:inst9|lpm_mux:$00000|mux_u5c:auto_generated" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+Info (12128): Elaborating entity "u_anticipaciones" for hierarchy "u_anticipaciones:inst17"
+Info (12128): Elaborating entity "mux_src" for hierarchy "mux_src:inst202"
+Info (12128): Elaborating entity "memoria_datos" for hierarchy "memoria_datos:inst41"
+Info (12128): Elaborating entity "ext_signo" for hierarchy "ext_signo:inst18"
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "BUSMUX:inst32"
+Info (12130): Elaborated megafunction instantiation "BUSMUX:inst32"
+Info (12133): Instantiated megafunction "BUSMUX:inst32" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "3"
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "BUSMUX:inst32|lpm_mux:$00000" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "BUSMUX:inst32|lpm_mux:$00000", which is child of megafunction instantiation "BUSMUX:inst32" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_v5c.tdf
+    Info (12023): Found entity 1: mux_v5c File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/db/mux_v5c.tdf Line: 23
+Info (12128): Elaborating entity "mux_v5c" for hierarchy "BUSMUX:inst32|lpm_mux:$00000|mux_v5c:auto_generated" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer branch:inst22|branch File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/branch.vhd Line: 13
+    Warning (19017): Found clock multiplexer branch:inst22|branch~0 File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/branch.vhd Line: 13
+    Warning (19017): Found clock multiplexer branch:inst22|branch~1 File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/branch.vhd Line: 13
+Warning (113028): 13 out of 64 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/db/pipeline.ram0_memoria_datos_b72dccdf.hdl.mif Line: 1
+    Warning (113027): Addresses ranging from 51 to 63 are not initialized File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/db/pipeline.ram0_memoria_datos_b72dccdf.hdl.mif Line: 1
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276013): RAM logic "memoria_datos:inst41|mem" is uninferred because MIF is not supported for the selected family File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/memoria_datos.vhd Line: 19
+Warning (13012): Latch ccr:inst|vi has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/ccr.vhd Line: 29
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selfalgs[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[15] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[1] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[0] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[2] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[3] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[0] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[4] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[5] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[0] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[6] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[7] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[0] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[8] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[9] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[0] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[10] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[11] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[0] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[12] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[13] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[0] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[14] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[0] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Warning (13012): Latch upa:inst33|opres[16] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/upa.vhd Line: 23
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal reg_acoplo_3:inst16|selop[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Info (13000): Registers with preset signals will power-up high File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_RISC/reg_acoplo_3.vhd Line: 46
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "datos_inst[31]" is stuck at GND
+    Warning (13410): Pin "datos_inst[30]" is stuck at GND
+    Warning (13410): Pin "datos_inst[29]" is stuck at GND
+    Warning (13410): Pin "datos_inst[28]" is stuck at GND
+    Warning (13410): Pin "datos_inst[27]" is stuck at GND
+    Warning (13410): Pin "datos_inst[26]" is stuck at GND
+    Warning (13410): Pin "datos_inst[25]" is stuck at GND
+    Warning (13410): Pin "datos_inst[24]" is stuck at GND
+    Warning (13410): Pin "datos_inst[15]" is stuck at GND
+    Warning (13410): Pin "datos_inst[14]" is stuck at GND
+    Warning (13410): Pin "datos_inst[13]" is stuck at GND
+    Warning (13410): Pin "datos_inst[12]" is stuck at GND
+    Warning (13410): Pin "datos_inst[11]" is stuck at GND
+    Warning (13410): Pin "datos_inst[10]" is stuck at GND
+    Warning (13410): Pin "datos_inst[9]" is stuck at GND
+    Warning (13410): Pin "datos_inst[8]" is stuck at GND
+    Warning (13410): Pin "datos_inst[7]" is stuck at GND
+    Warning (13410): Pin "datos_inst[6]" is stuck at GND
+    Warning (13410): Pin "datos_inst[5]" is stuck at GND
+    Warning (13410): Pin "datos_inst[4]" is stuck at GND
+    Warning (13410): Pin "instruccion[15]" is stuck at GND
+    Warning (13410): Pin "instruccion[14]" is stuck at GND
+    Warning (13410): Pin "instruccion[13]" is stuck at GND
+    Warning (13410): Pin "instruccion[12]" is stuck at GND
+    Warning (13410): Pin "instruccion[11]" is stuck at GND
+    Warning (13410): Pin "instruccion[10]" is stuck at GND
+    Warning (13410): Pin "instruccion[9]" is stuck at GND
+    Warning (13410): Pin "instruccion[8]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 2302 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 150 output pins
+    Info (21061): Implemented 2150 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 83 warnings
+    Info: Peak virtual memory: 478 megabytes
+    Info: Processing ended: Tue Jan 26 23:25:17 2021
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:30
+
+

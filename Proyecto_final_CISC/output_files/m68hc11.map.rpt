@@ -1,0 +1,1123 @@
+Analysis & Synthesis report for m68hc11
+Thu Jan 28 00:44:49 2021
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: secuenciador:inst7|BUSMUX:inst5
+ 15. Parameter Settings for User Entity Instance: secuenciador:inst7|MUX:inst6
+ 16. Parameter Settings for User Entity Instance: BUSMUX:inst13
+ 17. Parameter Settings for User Entity Instance: BUSMUX:inst12
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Jan 28 00:44:49 2021       ;
+; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                      ; m68hc11                                     ;
+; Top-level Entity Name              ; m68hc11                                     ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 924                                         ;
+;     Total combinational functions  ; 906                                         ;
+;     Dedicated logic registers      ; 192                                         ;
+; Total registers                    ; 192                                         ;
+; Total pins                         ; 169                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; m68hc11            ; m68hc11            ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Block Design Naming                                              ; MaxPlusII          ; Auto               ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 8           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                              ;
++----------------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path       ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                                                              ; Library ;
++----------------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; RAM/ram.vhd                            ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd                            ;         ;
+; Interrupciones/ctrl_interrupciones.vhd ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Interrupciones/ctrl_interrupciones.vhd ;         ;
+; flags/registro.vhd                     ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/registro.vhd                     ;         ;
+; flags/mux3.vhd                         ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/mux3.vhd                         ;         ;
+; flags/mux2.vhd                         ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/mux2.vhd                         ;         ;
+; flags/mux1.vhd                         ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/mux1.vhd                         ;         ;
+; flags/Flags.bdf                        ; yes             ; User Block Diagram/Schematic File  ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/Flags.bdf                        ;         ;
+; flags/divisor_datos.vhd                ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/divisor_datos.vhd                ;         ;
+; flags/concatenador_datos.vhd           ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/concatenador_datos.vhd           ;         ;
+; Contador/contador_id.vhd               ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd               ;         ;
+; Contador/contador.vhd                  ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd                  ;         ;
+; Acumulador/acumulador.vhd              ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd              ;         ;
+; UPA/upa.vhd                            ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd                            ;         ;
+; m68hc11.bdf                            ; yes             ; User Block Diagram/Schematic File  ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/m68hc11.bdf                            ;         ;
+; Secuenciador/secuenciador.bdf          ; yes             ; User Block Diagram/Schematic File  ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/secuenciador.bdf          ;         ;
+; Secuenciador/memory.vhd                ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/memory.vhd                ;         ;
+; Secuenciador/registro_sec.vhd          ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd          ;         ;
+; Secuenciador/logica_seleccion.vhd      ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/logica_seleccion.vhd      ;         ;
+; Secuenciador/registro_MicroInst.vhd    ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_MicroInst.vhd    ;         ;
+; registro_instruccion.vhd               ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_instruccion.vhd               ;         ;
+; bufferDataBus.vhd                      ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd                      ;         ;
+; registro_direccion.vhd                 ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd                 ;         ;
+; concatenador_entradas.vhd              ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/concatenador_entradas.vhd              ;         ;
+; enaY_gen.vhd                           ; yes             ; User VHDL File                     ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/enaY_gen.vhd                           ;         ;
+; busmux.tdf                             ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf                                                                                ;         ;
+; lpm_mux.inc                            ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc                                                                               ;         ;
+; lpm_mux.tdf                            ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.tdf                                                                               ;         ;
+; aglobal201.inc                         ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                                                            ;         ;
+; muxlut.inc                             ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/muxlut.inc                                                                                ;         ;
+; bypassff.inc                           ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/bypassff.inc                                                                              ;         ;
+; altshift.inc                           ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altshift.inc                                                                              ;         ;
+; db/mux_f7c.tdf                         ; yes             ; Auto-Generated Megafunction        ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_f7c.tdf                         ;         ;
+; mux.tdf                                ; yes             ; Megafunction                       ; /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/mux.tdf                                                                                   ;         ;
+; db/mux_k7c.tdf                         ; yes             ; Auto-Generated Megafunction        ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_k7c.tdf                         ;         ;
+; db/mux_t5c.tdf                         ; yes             ; Auto-Generated Megafunction        ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_t5c.tdf                         ;         ;
+; db/mux_46c.tdf                         ; yes             ; Auto-Generated Megafunction        ; /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_46c.tdf                         ;         ;
++----------------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 924       ;
+;                                             ;           ;
+; Total combinational functions               ; 906       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 570       ;
+;     -- 3 input functions                    ; 225       ;
+;     -- <=2 input functions                  ; 111       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 842       ;
+;     -- arithmetic mode                      ; 64        ;
+;                                             ;           ;
+; Total registers                             ; 192       ;
+;     -- Dedicated logic registers            ; 192       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 169       ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 187       ;
+; Total fan-out                               ; 4151      ;
+; Average fan-out                             ; 2.89      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                              ;
++--------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                            ; Entity Name          ; Library Name ;
++--------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------+----------------------+--------------+
+; |m68hc11                             ; 906 (0)             ; 192 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 169  ; 0            ; 0          ; |m68hc11                                                                       ; m68hc11              ; work         ;
+;    |Flags:inst5|                     ; 32 (15)             ; 5 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|Flags:inst5                                                           ; Flags                ; work         ;
+;       |mux1:inst13|                  ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|Flags:inst5|mux1:inst13                                               ; mux1                 ; work         ;
+;       |mux2:inst9|                   ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|Flags:inst5|mux2:inst9                                                ; mux2                 ; work         ;
+;       |mux3:inst10|                  ; 12 (12)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|Flags:inst5|mux3:inst10                                               ; mux3                 ; work         ;
+;       |mux3:inst11|                  ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|Flags:inst5|mux3:inst11                                               ; mux3                 ; work         ;
+;       |registro:inst1|               ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|Flags:inst5|registro:inst1                                            ; registro             ; work         ;
+;       |registro:inst2|               ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|Flags:inst5|registro:inst2                                            ; registro             ; work         ;
+;       |registro:inst3|               ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|Flags:inst5|registro:inst3                                            ; registro             ; work         ;
+;       |registro:inst5|               ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|Flags:inst5|registro:inst5                                            ; registro             ; work         ;
+;       |registro:inst|                ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|Flags:inst5|registro:inst                                             ; registro             ; work         ;
+;    |acumulador:ACCA|                 ; 12 (12)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|acumulador:ACCA                                                       ; acumulador           ; work         ;
+;    |acumulador:ACCB|                 ; 12 (12)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|acumulador:ACCB                                                       ; acumulador           ; work         ;
+;    |contador:AUX|                    ; 22 (22)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|contador:AUX                                                          ; contador             ; work         ;
+;    |contador:PC|                     ; 67 (67)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|contador:PC                                                           ; contador             ; work         ;
+;    |contador_ID:X|                   ; 59 (59)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|contador_ID:X                                                         ; contador_ID          ; work         ;
+;    |ram:inst6|                       ; 53 (53)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|ram:inst6                                                             ; ram                  ; work         ;
+;    |registro_direccion:inst|         ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|registro_direccion:inst                                               ; registro_direccion   ; work         ;
+;    |registro_instruccion:inst8|      ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|registro_instruccion:inst8                                            ; registro_instruccion ; work         ;
+;    |secuenciador:inst7|              ; 448 (0)             ; 70 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|secuenciador:inst7                                                    ; secuenciador         ; work         ;
+;       |busmux:inst5|                 ; 14 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|secuenciador:inst7|busmux:inst5                                       ; busmux               ; work         ;
+;          |lpm_mux:$00000|            ; 14 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|secuenciador:inst7|busmux:inst5|lpm_mux:$00000                        ; lpm_mux              ; work         ;
+;             |mux_f7c:auto_generated| ; 14 (14)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|secuenciador:inst7|busmux:inst5|lpm_mux:$00000|mux_f7c:auto_generated ; mux_f7c              ; work         ;
+;       |logica_seleccion:inst3|       ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|secuenciador:inst7|logica_seleccion:inst3                             ; logica_seleccion     ; work         ;
+;       |memory:inst1|                 ; 377 (377)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|secuenciador:inst7|memory:inst1                                       ; memory               ; work         ;
+;       |mux:inst6|                    ; 14 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|secuenciador:inst7|mux:inst6                                          ; mux                  ; work         ;
+;          |lpm_mux:$00001|            ; 14 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|secuenciador:inst7|mux:inst6|lpm_mux:$00001                           ; lpm_mux              ; work         ;
+;             |mux_k7c:auto_generated| ; 14 (14)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|secuenciador:inst7|mux:inst6|lpm_mux:$00001|mux_k7c:auto_generated    ; mux_k7c              ; work         ;
+;       |registro_MicroInst:inst4|     ; 12 (12)             ; 12 (12)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|secuenciador:inst7|registro_MicroInst:inst4                           ; registro_MicroInst   ; work         ;
+;       |registro_sec:inst2|           ; 29 (29)             ; 58 (58)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|secuenciador:inst7|registro_sec:inst2                                 ; registro_sec         ; work         ;
+;    |upa:inst1|                       ; 185 (185)           ; 21 (21)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |m68hc11|upa:inst1                                                             ; upa                  ; work         ;
++--------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; upa:inst1|R[7]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|S[7]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|R[6]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|S[6]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|R[5]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|S[5]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|R[4]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|S[4]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|R[3]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|S[3]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|R[2]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|S[2]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|R[1]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|S[1]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|R[0]                                      ; upa:inst1|Mux28     ; yes                    ;
+; upa:inst1|S[0]                                      ; upa:inst1|Mux28     ; yes                    ;
+; Number of user-specified and inferred latches = 16  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                   ;
++------------------------------------------------------------+---------------------------------------------------------+
+; Register name                                              ; Reason for Removal                                      ;
++------------------------------------------------------------+---------------------------------------------------------+
+; registro_instruccion:inst8|valor_interno[0..3]             ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|liga[1,2,4..8,10,11] ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|UPA[6,8,9]           ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|nEX1                 ; Stuck at VCC due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|X[2]                 ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|enaY                 ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|nEAP2                ; Stuck at VCC due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|nEAP1                ; Stuck at VCC due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|nEAP0                ; Stuck at VCC due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|AP[0..2]             ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|nRW                  ; Stuck at VCC due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|DINT                 ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|HINT                 ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|SET_IRQ              ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|SET_XIRQ             ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|B9                   ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|B8                   ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|B5                   ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|B1                   ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|CI                   ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|CX                   ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|CS                   ; Stuck at GND due to stuck port data_in                  ;
+; Flags:inst5|registro:inst7|valor_interno                   ; Stuck at GND due to stuck port clock                    ;
+; Flags:inst5|registro:inst6|valor_interno                   ; Stuck at GND due to stuck port clock                    ;
+; Flags:inst5|registro:inst4|valor_interno                   ; Stuck at GND due to stuck port clock                    ;
+; contador_ID:Y|data_out[0..15]                              ; Stuck at GND due to stuck port clock_enable             ;
+; ctrl_interrupciones:inst3|IRQ_flag                         ; Stuck at GND due to stuck port data_in                  ;
+; ctrl_interrupciones:inst3|XIRQ_flag                        ; Stuck at GND due to stuck port data_in                  ;
+; ctrl_interrupciones:inst3|INT_flag                         ; Stuck at GND due to stuck port clock_enable             ;
+; contador:AP|data_out[0..14]                                ; Merged with contador:AP|data_out[15]                    ;
+; upa:inst1|Banderas[3]                                      ; Merged with upa:inst1|Banderas[1]                       ;
+; secuenciador:inst7|registro_sec:inst2|RA[1]                ; Merged with secuenciador:inst7|registro_sec:inst2|RA[0] ;
+; secuenciador:inst7|registro_sec:inst2|nOEUPA               ; Merged with secuenciador:inst7|registro_sec:inst2|nDUPA ;
+; contador:AP|data_out[15]                                   ; Stuck at GND due to stuck port data_in                  ;
+; secuenciador:inst7|registro_sec:inst2|nEX2                 ; Lost fanout                                             ;
+; upa:inst1|Yupa_interno[7]                                  ; Merged with upa:inst1|Banderas[2]                       ;
+; upa:inst1|Yupa_interno[4]                                  ; Merged with upa:inst1|Banderas[4]                       ;
+; Total Number of Removed Registers = 81                     ;                                                         ;
++------------------------------------------------------------+---------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                      ;
++------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name                                  ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; registro_instruccion:inst8|valor_interno[0]    ; Stuck at GND              ; contador_ID:Y|data_out[0], contador_ID:Y|data_out[1], contador_ID:Y|data_out[2],    ;
+;                                                ; due to stuck port data_in ; contador_ID:Y|data_out[3], contador_ID:Y|data_out[4], contador_ID:Y|data_out[5],    ;
+;                                                ;                           ; contador_ID:Y|data_out[6], contador_ID:Y|data_out[7], contador_ID:Y|data_out[8],    ;
+;                                                ;                           ; contador_ID:Y|data_out[9], contador_ID:Y|data_out[10], contador_ID:Y|data_out[11],  ;
+;                                                ;                           ; contador_ID:Y|data_out[12], contador_ID:Y|data_out[13], contador_ID:Y|data_out[14], ;
+;                                                ;                           ; contador_ID:Y|data_out[15]                                                          ;
+; secuenciador:inst7|registro_sec:inst2|nEAP0    ; Stuck at VCC              ; Flags:inst5|registro:inst7|valor_interno, Flags:inst5|registro:inst6|valor_interno, ;
+;                                                ; due to stuck port data_in ; Flags:inst5|registro:inst4|valor_interno                                            ;
+; secuenciador:inst7|registro_sec:inst2|X[2]     ; Stuck at GND              ; secuenciador:inst7|registro_sec:inst2|nEX2                                          ;
+;                                                ; due to stuck port data_in ;                                                                                     ;
+; secuenciador:inst7|registro_sec:inst2|AP[2]    ; Stuck at GND              ; contador:AP|data_out[15]                                                            ;
+;                                                ; due to stuck port data_in ;                                                                                     ;
+; secuenciador:inst7|registro_sec:inst2|DINT     ; Stuck at GND              ; ctrl_interrupciones:inst3|INT_flag                                                  ;
+;                                                ; due to stuck port data_in ;                                                                                     ;
+; secuenciador:inst7|registro_sec:inst2|SET_IRQ  ; Stuck at GND              ; ctrl_interrupciones:inst3|IRQ_flag                                                  ;
+;                                                ; due to stuck port data_in ;                                                                                     ;
+; secuenciador:inst7|registro_sec:inst2|SET_XIRQ ; Stuck at GND              ; ctrl_interrupciones:inst3|XIRQ_flag                                                 ;
+;                                                ; due to stuck port data_in ;                                                                                     ;
++------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 192   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 16    ;
+; Number of registers using Asynchronous Clear ; 158   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 98    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------+
+; Inverted Register Statistics                          ;
++---------------------------------------------+---------+
+; Inverted Register                           ; Fan out ;
++---------------------------------------------+---------+
+; secuenciador:inst7|registro_sec:inst2|nDUPA ; 28      ;
+; secuenciador:inst7|registro_sec:inst2|nHB   ; 9       ;
+; secuenciador:inst7|registro_sec:inst2|nAS   ; 26      ;
+; secuenciador:inst7|registro_sec:inst2|nEPC0 ; 1       ;
+; secuenciador:inst7|registro_sec:inst2|nERA0 ; 4       ;
+; secuenciador:inst7|registro_sec:inst2|nWB   ; 10      ;
+; secuenciador:inst7|registro_sec:inst2|nWA   ; 4       ;
+; secuenciador:inst7|registro_sec:inst2|nEX0  ; 2       ;
+; secuenciador:inst7|registro_sec:inst2|nERA1 ; 1       ;
+; secuenciador:inst7|registro_sec:inst2|nEPC1 ; 1       ;
+; secuenciador:inst7|registro_sec:inst2|nEPC2 ; 1       ;
+; secuenciador:inst7|registro_sec:inst2|nERA2 ; 1       ;
+; secuenciador:inst7|registro_sec:inst2|nCBD  ; 16      ;
+; secuenciador:inst7|registro_sec:inst2|nCRI  ; 16      ;
+; Total number of inverted registers = 14     ;         ;
++---------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|instruccion[1] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |m68hc11|registro_direccion:inst|valor_interno[5]             ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|B2             ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 21 LEs               ; 0 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|B3             ;
+; 33:1               ; 2 bits    ; 44 LEs        ; 44 LEs               ; 0 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|prueba[1]      ;
+; 45:1               ; 2 bits    ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|instruccion[0] ;
+; 59:1               ; 2 bits    ; 78 LEs        ; 78 LEs               ; 0 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|X[0]           ;
+; 62:1               ; 3 bits    ; 123 LEs       ; 123 LEs              ; 0 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|liga[0]        ;
+; 69:1               ; 2 bits    ; 92 LEs        ; 92 LEs               ; 0 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|PC[0]          ;
+; 79:1               ; 2 bits    ; 104 LEs       ; 104 LEs              ; 0 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|EB[0]          ;
+; 83:1               ; 4 bits    ; 220 LEs       ; 220 LEs              ; 0 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|UPA[0]         ;
+; 84:1               ; 3 bits    ; 168 LEs       ; 165 LEs              ; 3 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|UPA[1]         ;
+; 89:1               ; 2 bits    ; 118 LEs       ; 118 LEs              ; 0 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|liga[3]        ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |m68hc11|contador:AUX|data_out[15]                            ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |m68hc11|contador:AUX|data_out[3]                             ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |m68hc11|contador_ID:X|data_out[2]                            ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |m68hc11|acumulador:ACCA|data_out[7]                          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |m68hc11|acumulador:ACCB|data_out[1]                          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |m68hc11|contador_ID:X|data_out[9]                            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; Yes        ; |m68hc11|contador:PC|data_out[1]                              ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; Yes        ; |m68hc11|contador:PC|data_out[12]                             ;
+; 29:1               ; 2 bits    ; 38 LEs        ; 38 LEs               ; 0 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|nEPC0          ;
+; 87:1               ; 3 bits    ; 174 LEs       ; 174 LEs              ; 0 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|nERA2          ;
+; 88:1               ; 3 bits    ; 174 LEs       ; 174 LEs              ; 0 LEs                  ; Yes        ; |m68hc11|secuenciador:inst7|registro_sec:inst2|nEPC2          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |m68hc11|upa:inst1|Add0                                       ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |m68hc11|upa:inst1|Add0                                       ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; No         ; |m68hc11|upa:inst1|Mux27                                      ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; No         ; |m68hc11|upa:inst1|Mux42                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: secuenciador:inst7|BUSMUX:inst5 ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; WIDTH          ; 12    ; Untyped                                             ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: secuenciador:inst7|MUX:inst6 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; WIDTH          ; 32    ; Untyped                                          ;
+; WIDTHS         ; 5     ; Untyped                                          ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst13 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 1     ; Untyped                           ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BUSMUX:inst12 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; WIDTH          ; 8     ; Untyped                           ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 169                         ;
+; cycloneiii_ff         ; 192                         ;
+;     CLR               ; 94                          ;
+;     ENA               ; 34                          ;
+;     ENA CLR           ; 48                          ;
+;     ENA CLR SLD       ; 16                          ;
+; cycloneiii_io_obuf    ; 8                           ;
+; cycloneiii_lcell_comb ; 908                         ;
+;     arith             ; 64                          ;
+;         2 data inputs ; 39                          ;
+;         3 data inputs ; 25                          ;
+;     normal            ; 844                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 68                          ;
+;         3 data inputs ; 200                         ;
+;         4 data inputs ; 570                         ;
+;                       ;                             ;
+; Max LUT depth         ; 19.00                       ;
+; Average LUT depth     ; 10.06                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:27     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Thu Jan 28 00:44:12 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off m68hc11 -c m68hc11
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file RAM/ram.vhd
+    Info (12022): Found design unit 1: ram-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 15
+    Info (12023): Found entity 1: ram File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file Interrupciones/ctrl_interrupciones.vhd
+    Info (12022): Found design unit 1: ctrl_interrupciones-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Interrupciones/ctrl_interrupciones.vhd Line: 20
+    Info (12023): Found entity 1: ctrl_interrupciones File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Interrupciones/ctrl_interrupciones.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file flags/registro.vhd
+    Info (12022): Found design unit 1: registro-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/registro.vhd Line: 12
+    Info (12023): Found entity 1: registro File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/registro.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file flags/mux3.vhd
+    Info (12022): Found design unit 1: mux3-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/mux3.vhd Line: 19
+    Info (12023): Found entity 1: mux3 File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/mux3.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file flags/mux2.vhd
+    Info (12022): Found design unit 1: mux2-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/mux2.vhd Line: 14
+    Info (12023): Found entity 1: mux2 File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/mux2.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file flags/mux1.vhd
+    Info (12022): Found design unit 1: mux1-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/mux1.vhd Line: 11
+    Info (12023): Found entity 1: mux1 File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/mux1.vhd Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file flags/Flags.bdf
+    Info (12023): Found entity 1: Flags
+Info (12021): Found 2 design units, including 1 entities, in source file flags/divisor_datos.vhd
+    Info (12022): Found design unit 1: divisor_datos-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/divisor_datos.vhd Line: 19
+    Info (12023): Found entity 1: divisor_datos File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/divisor_datos.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file flags/concatenador_datos.vhd
+    Info (12022): Found design unit 1: concatenador_datos-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/concatenador_datos.vhd Line: 18
+    Info (12023): Found entity 1: concatenador_datos File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/concatenador_datos.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file Contador/contador_id.vhd
+    Info (12022): Found design unit 1: contador_ID-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 26
+    Info (12023): Found entity 1: contador_ID File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file Contador/contador.vhd
+    Info (12022): Found design unit 1: contador-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 25
+    Info (12023): Found entity 1: contador File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file Acumulador/acumulador.vhd
+    Info (12022): Found design unit 1: acumulador-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 20
+    Info (12023): Found entity 1: acumulador File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file UPA/upa.vhd
+    Info (12022): Found design unit 1: upa-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 33
+    Info (12023): Found entity 1: upa File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file m68hc11.bdf
+    Info (12023): Found entity 1: m68hc11
+Info (12021): Found 1 design units, including 1 entities, in source file Secuenciador/secuenciador.bdf
+    Info (12023): Found entity 1: secuenciador
+Info (12021): Found 2 design units, including 1 entities, in source file Secuenciador/memory.vhd
+    Info (12022): Found design unit 1: memory-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/memory.vhd Line: 12
+    Info (12023): Found entity 1: memory File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/memory.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file Secuenciador/registro_sec.vhd
+    Info (12022): Found design unit 1: registro_sec-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 69
+    Info (12023): Found entity 1: registro_sec File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file Secuenciador/logica_seleccion.vhd
+    Info (12022): Found design unit 1: logica_seleccion-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/logica_seleccion.vhd Line: 15
+    Info (12023): Found entity 1: logica_seleccion File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/logica_seleccion.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file Secuenciador/registro_MicroInst.vhd
+    Info (12022): Found design unit 1: registro_MicroInst-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_MicroInst.vhd Line: 13
+    Info (12023): Found entity 1: registro_MicroInst File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_MicroInst.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file registro_instruccion.vhd
+    Info (12022): Found design unit 1: registro_instruccion-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_instruccion.vhd Line: 15
+    Info (12023): Found entity 1: registro_instruccion File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_instruccion.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file bufferDataBus.vhd
+    Info (12022): Found design unit 1: bufferDataBus-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 12
+    Info (12023): Found entity 1: bufferDataBus File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file registro_direccion.vhd
+    Info (12022): Found design unit 1: registro_direccion-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 14
+    Info (12023): Found entity 1: registro_direccion File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file concatenador_entradas.vhd
+    Info (12022): Found design unit 1: concatenador_entradas-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/concatenador_entradas.vhd Line: 42
+    Info (12023): Found entity 1: concatenador_entradas File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/concatenador_entradas.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file enaY_gen.vhd
+    Info (12022): Found design unit 1: enaY_gen-Behavioral File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/enaY_gen.vhd Line: 15
+    Info (12023): Found entity 1: enaY_gen File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/enaY_gen.vhd Line: 7
+Info (12127): Elaborating entity "m68hc11" for the top level hierarchy
+Warning (275083): Bus "Yupa2[7..0]" found using same base name as "Yupa", which might lead to a name conflict.
+Info (12128): Elaborating entity "Flags" for hierarchy "Flags:inst5"
+Info (12128): Elaborating entity "registro" for hierarchy "Flags:inst5|registro:inst4"
+Info (12128): Elaborating entity "divisor_datos" for hierarchy "Flags:inst5|divisor_datos:inst15"
+Info (12128): Elaborating entity "mux1" for hierarchy "Flags:inst5|mux1:inst13"
+Info (12128): Elaborating entity "mux2" for hierarchy "Flags:inst5|mux2:inst9"
+Info (12128): Elaborating entity "mux3" for hierarchy "Flags:inst5|mux3:inst10"
+Info (12128): Elaborating entity "concatenador_datos" for hierarchy "Flags:inst5|concatenador_datos:inst14"
+Info (12128): Elaborating entity "secuenciador" for hierarchy "secuenciador:inst7"
+Info (12128): Elaborating entity "registro_sec" for hierarchy "secuenciador:inst7|registro_sec:inst2"
+Info (12128): Elaborating entity "memory" for hierarchy "secuenciador:inst7|memory:inst1"
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "secuenciador:inst7|BUSMUX:inst5"
+Info (12130): Elaborated megafunction instantiation "secuenciador:inst7|BUSMUX:inst5"
+Info (12133): Instantiated megafunction "secuenciador:inst7|BUSMUX:inst5" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "12"
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "secuenciador:inst7|BUSMUX:inst5|lpm_mux:$00000" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "secuenciador:inst7|BUSMUX:inst5|lpm_mux:$00000", which is child of megafunction instantiation "secuenciador:inst7|BUSMUX:inst5" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_f7c.tdf
+    Info (12023): Found entity 1: mux_f7c File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_f7c.tdf Line: 23
+Info (12128): Elaborating entity "mux_f7c" for hierarchy "secuenciador:inst7|BUSMUX:inst5|lpm_mux:$00000|mux_f7c:auto_generated" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+Info (12128): Elaborating entity "logica_seleccion" for hierarchy "secuenciador:inst7|logica_seleccion:inst3"
+Info (12128): Elaborating entity "MUX" for hierarchy "secuenciador:inst7|MUX:inst6"
+Info (12130): Elaborated megafunction instantiation "secuenciador:inst7|MUX:inst6"
+Info (12133): Instantiated megafunction "secuenciador:inst7|MUX:inst6" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "32"
+    Info (12134): Parameter "WIDTHS" = "5"
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "secuenciador:inst7|MUX:inst6|lpm_mux:$00001" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/mux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "secuenciador:inst7|MUX:inst6|lpm_mux:$00001", which is child of megafunction instantiation "secuenciador:inst7|MUX:inst6" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/mux.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_k7c.tdf
+    Info (12023): Found entity 1: mux_k7c File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_k7c.tdf Line: 23
+Info (12128): Elaborating entity "mux_k7c" for hierarchy "secuenciador:inst7|MUX:inst6|lpm_mux:$00001|mux_k7c:auto_generated" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+Info (12128): Elaborating entity "registro_MicroInst" for hierarchy "secuenciador:inst7|registro_MicroInst:inst4"
+Info (12128): Elaborating entity "ctrl_interrupciones" for hierarchy "ctrl_interrupciones:inst3"
+Info (12128): Elaborating entity "registro_instruccion" for hierarchy "registro_instruccion:inst8"
+Info (12128): Elaborating entity "acumulador" for hierarchy "acumulador:ACCB"
+Info (12128): Elaborating entity "contador_ID" for hierarchy "contador_ID:Y"
+Info (12128): Elaborating entity "enaY_gen" for hierarchy "enaY_gen:inst10"
+Warning (10631): VHDL Process Statement warning at enaY_gen.vhd(28): inferring latch(es) for signal or variable "data_out", which holds its previous value in one or more paths through the process File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/enaY_gen.vhd Line: 28
+Info (10041): Inferred latch for "data_out" at enaY_gen.vhd(28) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/enaY_gen.vhd Line: 28
+Info (12128): Elaborating entity "contador" for hierarchy "contador:AUX"
+Info (12128): Elaborating entity "upa" for hierarchy "upa:inst1"
+Warning (10631): VHDL Process Statement warning at upa.vhd(53): inferring latch(es) for signal or variable "R", which holds its previous value in one or more paths through the process File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Warning (10631): VHDL Process Statement warning at upa.vhd(53): inferring latch(es) for signal or variable "S", which holds its previous value in one or more paths through the process File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "S[0]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "S[1]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "S[2]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "S[3]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "S[4]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "S[5]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "S[6]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "S[7]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "R[0]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "R[1]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "R[2]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "R[3]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "R[4]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "R[5]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "R[6]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (10041): Inferred latch for "R[7]" at upa.vhd(53) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "BUSMUX:inst13"
+Info (12130): Elaborated megafunction instantiation "BUSMUX:inst13"
+Info (12133): Instantiated megafunction "BUSMUX:inst13" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "1"
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "BUSMUX:inst13|lpm_mux:$00000" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "BUSMUX:inst13|lpm_mux:$00000", which is child of megafunction instantiation "BUSMUX:inst13" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_t5c.tdf
+    Info (12023): Found entity 1: mux_t5c File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_t5c.tdf Line: 23
+Info (12128): Elaborating entity "mux_t5c" for hierarchy "BUSMUX:inst13|lpm_mux:$00000|mux_t5c:auto_generated" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+Info (12128): Elaborating entity "BUSMUX" for hierarchy "BUSMUX:inst12"
+Info (12130): Elaborated megafunction instantiation "BUSMUX:inst12"
+Info (12133): Instantiated megafunction "BUSMUX:inst12" with the following parameter:
+    Info (12134): Parameter "WIDTH" = "8"
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "BUSMUX:inst12|lpm_mux:$00000" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12131): Elaborated megafunction instantiation "BUSMUX:inst12|lpm_mux:$00000", which is child of megafunction instantiation "BUSMUX:inst12" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/busmux.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_46c.tdf
+    Info (12023): Found entity 1: mux_46c File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_46c.tdf Line: 23
+Info (12128): Elaborating entity "mux_46c" for hierarchy "BUSMUX:inst12|lpm_mux:$00000|mux_46c:auto_generated" File: /home/valdr/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 87
+Info (12128): Elaborating entity "bufferDataBus" for hierarchy "bufferDataBus:bufferAlta"
+Info (12128): Elaborating entity "ram" for hierarchy "ram:inst6"
+Warning (10631): VHDL Process Statement warning at ram.vhd(23): inferring latch(es) for signal or variable "mem", which holds its previous value in one or more paths through the process File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[63][0]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[63][1]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[63][2]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[63][3]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[63][4]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[63][5]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[63][6]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[63][7]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[62][0]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[62][1]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[62][2]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[62][3]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[62][4]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[62][5]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[62][6]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[62][7]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[61][0]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[61][1]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[61][2]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[61][3]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[61][4]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[61][5]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[61][6]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[61][7]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[60][0]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[60][1]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[60][2]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[60][3]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[60][4]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[60][5]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[60][6]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[60][7]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[59][0]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[59][1]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[59][2]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[59][3]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[59][4]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[59][5]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[59][6]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[59][7]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[58][0]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[58][1]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[58][2]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[58][3]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[58][4]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[58][5]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[58][6]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[58][7]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[57][0]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[57][1]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[57][2]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[57][3]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[57][4]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[57][5]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[57][6]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[57][7]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[56][0]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[56][1]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[56][2]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[56][3]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[56][4]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[56][5]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[56][6]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[56][7]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[55][0]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[55][1]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[55][2]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[55][3]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[55][4]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[55][5]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[55][6]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[55][7]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[54][0]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[54][1]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[54][2]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[54][3]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[54][4]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[54][5]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[54][6]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[54][7]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[53][0]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[53][1]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[53][2]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[53][3]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[53][4]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[53][5]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[53][6]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[53][7]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[52][0]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[52][1]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[52][2]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[52][3]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[52][4]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[52][5]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[52][6]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (10041): Inferred latch for "mem[52][7]" at ram.vhd(23) File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Info (12128): Elaborating entity "registro_direccion" for hierarchy "registro_direccion:inst"
+Info (12128): Elaborating entity "concatenador_entradas" for hierarchy "concatenador_entradas:inst2"
+Warning (14025): LATCH primitive "ram:inst6|mem[63][2]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[63][3]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[63][4]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[63][5]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[63][6]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[63][7]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[62][1]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[62][2]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[62][3]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[62][4]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[62][5]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[62][6]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[62][7]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[61][1]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[61][2]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[61][3]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[61][4]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[61][5]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[61][6]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[61][7]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[60][1]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[60][2]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[60][3]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[60][4]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[60][5]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[60][6]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[60][7]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[59][1]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[59][2]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[59][3]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[59][4]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[59][5]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[59][6]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[59][7]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[58][1]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[58][2]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[58][3]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[58][4]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[58][5]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[58][6]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[58][7]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[57][1]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[57][2]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[57][3]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[57][4]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[57][5]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[57][6]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[57][7]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[56][1]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[56][2]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[56][3]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[56][4]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[56][5]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[56][6]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[56][7]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[55][1]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[55][2]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[55][3]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[55][4]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[55][5]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[55][6]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[55][7]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[54][1]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[54][2]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[54][3]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[54][4]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[54][5]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[54][6]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[54][7]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[53][1]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[53][2]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[53][3]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[53][4]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[53][5]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[53][6]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[53][7]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[52][1]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[52][2]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[52][3]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[52][4]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[52][5]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[52][6]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[52][7]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[63][0]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[63][1]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[62][0]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[61][0]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[60][0]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[59][0]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[58][0]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[57][0]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[56][0]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[55][0]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[54][0]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[53][0]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (14025): LATCH primitive "ram:inst6|mem[52][0]" is permanently disabled File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/RAM/ram.vhd Line: 23
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[15]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[14]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[13]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[12]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[11]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[10]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[9]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[8]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[7]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[6]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[5]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[4]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[3]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[2]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[1]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "registro_direccion:inst|valor_interno[0]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/registro_direccion.vhd Line: 19
+    Warning (13048): Converted tri-state node feeding "Flags:inst5|mux3:inst10|output" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/mux3.vhd Line: 16
+    Warning (13048): Converted tri-state node feeding "Flags:inst5|mux3:inst11|output" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/flags/mux3.vhd Line: 16
+    Warning (13049): Converted tri-state buffer "contador:AP|R15~synth" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 15
+    Warning (13049): Converted tri-state buffer "contador:AP|R0~synth" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 16
+    Warning (13049): Converted tri-state buffer "acumulador:ACCA|C[0]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "acumulador:ACCA|C[1]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "acumulador:ACCA|C[2]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "acumulador:ACCA|C[3]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "acumulador:ACCA|C[4]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "acumulador:ACCA|C[5]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "acumulador:ACCA|C[6]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "acumulador:ACCA|C[7]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "contador_ID:X|R15~synth" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 15
+    Warning (13049): Converted tri-state buffer "contador_ID:X|R0~synth" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 16
+    Warning (13049): Converted tri-state buffer "contador_ID:Y|R15~synth" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 15
+    Warning (13049): Converted tri-state buffer "contador_ID:Y|R0~synth" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 16
+    Warning (13049): Converted tri-state buffer "acumulador:ACCB|C[0]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "acumulador:ACCB|C[1]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "acumulador:ACCB|C[2]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "acumulador:ACCB|C[3]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "acumulador:ACCB|C[4]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "acumulador:ACCB|C[5]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "acumulador:ACCB|C[6]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13049): Converted tri-state buffer "acumulador:ACCB|C[7]" feeding internal logic into a wire File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Acumulador/acumulador.vhd Line: 11
+    Warning (13048): Converted tri-state node feeding "secuenciador:inst7|busmux:inst5|lpm_mux:$00000|mux_f7c:auto_generated|result_node[11]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_f7c.tdf Line: 30
+    Warning (13048): Converted tri-state node feeding "secuenciador:inst7|busmux:inst5|lpm_mux:$00000|mux_f7c:auto_generated|result_node[10]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_f7c.tdf Line: 30
+    Warning (13048): Converted tri-state node feeding "secuenciador:inst7|busmux:inst5|lpm_mux:$00000|mux_f7c:auto_generated|result_node[9]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_f7c.tdf Line: 30
+    Warning (13048): Converted tri-state node feeding "secuenciador:inst7|busmux:inst5|lpm_mux:$00000|mux_f7c:auto_generated|result_node[8]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_f7c.tdf Line: 30
+    Warning (13048): Converted tri-state node feeding "secuenciador:inst7|busmux:inst5|lpm_mux:$00000|mux_f7c:auto_generated|result_node[7]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_f7c.tdf Line: 30
+    Warning (13048): Converted tri-state node feeding "secuenciador:inst7|busmux:inst5|lpm_mux:$00000|mux_f7c:auto_generated|result_node[6]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_f7c.tdf Line: 30
+    Warning (13048): Converted tri-state node feeding "secuenciador:inst7|busmux:inst5|lpm_mux:$00000|mux_f7c:auto_generated|result_node[5]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_f7c.tdf Line: 30
+    Warning (13048): Converted tri-state node feeding "secuenciador:inst7|busmux:inst5|lpm_mux:$00000|mux_f7c:auto_generated|result_node[4]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_f7c.tdf Line: 30
+    Warning (13048): Converted tri-state node feeding "secuenciador:inst7|busmux:inst5|lpm_mux:$00000|mux_f7c:auto_generated|result_node[3]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_f7c.tdf Line: 30
+    Warning (13048): Converted tri-state node feeding "secuenciador:inst7|busmux:inst5|lpm_mux:$00000|mux_f7c:auto_generated|result_node[2]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_f7c.tdf Line: 30
+    Warning (13048): Converted tri-state node feeding "secuenciador:inst7|busmux:inst5|lpm_mux:$00000|mux_f7c:auto_generated|result_node[1]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_f7c.tdf Line: 30
+    Warning (13048): Converted tri-state node feeding "secuenciador:inst7|busmux:inst5|lpm_mux:$00000|mux_f7c:auto_generated|result_node[0]" into a selector File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/db/mux_f7c.tdf Line: 30
+Warning (13027): Removed fan-outs from the following always-disabled I/O buffers
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferBaja|PortR[7]" to the node "RAM[7]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferAlta|PortR[7]" to the node "RAM[7]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferBaja|PortR[6]" to the node "RAM[6]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferAlta|PortR[6]" to the node "RAM[6]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferBaja|PortR[5]" to the node "RAM[5]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferAlta|PortR[5]" to the node "RAM[5]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferBaja|PortR[4]" to the node "RAM[4]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferAlta|PortR[4]" to the node "RAM[4]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferBaja|PortR[3]" to the node "RAM[3]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferAlta|PortR[3]" to the node "RAM[3]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferBaja|PortR[2]" to the node "RAM[2]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferAlta|PortR[2]" to the node "RAM[2]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferBaja|PortR[1]" to the node "RAM[1]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferAlta|PortR[1]" to the node "RAM[1]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferBaja|PortR[0]" to the node "RAM[0]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "bufferDataBus:bufferAlta|PortR[0]" to the node "RAM[0]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/bufferDataBus.vhd Line: 7
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:X|C[7]" to the node "bufferDataBus:bufferAlta|PortR[7]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:X|C[6]" to the node "bufferDataBus:bufferAlta|PortR[6]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:X|C[5]" to the node "bufferDataBus:bufferAlta|PortR[5]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:X|C[4]" to the node "bufferDataBus:bufferAlta|PortR[4]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:X|C[3]" to the node "bufferDataBus:bufferAlta|PortR[3]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:X|C[2]" to the node "bufferDataBus:bufferAlta|PortR[2]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:X|C[1]" to the node "bufferDataBus:bufferAlta|PortR[1]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:X|C[0]" to the node "bufferDataBus:bufferAlta|PortR[0]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|D[0]" to the node "registro_instruccion:inst8|instruct_int[0]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|D[0]" to the node "registro_instruccion:inst8|instruct_int[0]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|D[7]" to the node "registro_instruccion:inst8|instruct_int[7]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|D[7]" to the node "registro_instruccion:inst8|instruct_int[7]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|D[6]" to the node "registro_instruccion:inst8|instruct_int[6]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|D[6]" to the node "registro_instruccion:inst8|instruct_int[6]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|D[5]" to the node "registro_instruccion:inst8|instruct_int[5]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|D[5]" to the node "registro_instruccion:inst8|instruct_int[5]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|D[4]" to the node "registro_instruccion:inst8|instruct_int[4]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|D[4]" to the node "registro_instruccion:inst8|instruct_int[4]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|D[3]" to the node "registro_instruccion:inst8|instruct_int[3]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|D[3]" to the node "registro_instruccion:inst8|instruct_int[3]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|D[2]" to the node "registro_instruccion:inst8|instruct_int[2]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|D[2]" to the node "registro_instruccion:inst8|instruct_int[2]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|D[1]" to the node "registro_instruccion:inst8|instruct_int[1]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|D[1]" to the node "registro_instruccion:inst8|instruct_int[1]" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 10
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|C[7]" to the node "upa:inst1|Mux43" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|C[7]" to the node "upa:inst1|Mux43" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|C[6]" to the node "upa:inst1|Mux42" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|C[6]" to the node "upa:inst1|Mux42" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|C[5]" to the node "upa:inst1|Mux41" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|C[5]" to the node "upa:inst1|Mux41" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|C[4]" to the node "upa:inst1|Mux40" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|C[4]" to the node "upa:inst1|Mux40" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|C[3]" to the node "upa:inst1|Mux39" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|C[3]" to the node "upa:inst1|Mux39" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|C[2]" to the node "upa:inst1|Mux38" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|C[2]" to the node "upa:inst1|Mux38" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|C[1]" to the node "upa:inst1|Mux37" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|C[1]" to the node "upa:inst1|Mux37" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador_ID:Y|C[0]" to the node "upa:inst1|Mux36" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador_id.vhd Line: 9
+    Warning (13028): Removed fan-out from the always-disabled I/O buffer "contador:AP|C[0]" to the node "upa:inst1|Mux36" File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 9
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "contador:AUX|R15" to the node "secuenciador:inst7|mux:inst6|lpm_mux:$00001|mux_k7c:auto_generated|_" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 15
+    Warning (13047): Converted the fan-out from the tri-state buffer "contador:AUX|R0" to the node "secuenciador:inst7|mux:inst6|lpm_mux:$00001|mux_k7c:auto_generated|_" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 16
+    Warning (13047): Converted the fan-out from the tri-state buffer "contador:PC|R15" to the node "secuenciador:inst7|mux:inst6|lpm_mux:$00001|mux_k7c:auto_generated|_" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 15
+    Warning (13047): Converted the fan-out from the tri-state buffer "contador:PC|R0" to the node "secuenciador:inst7|mux:inst6|lpm_mux:$00001|mux_k7c:auto_generated|_" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Contador/contador.vhd Line: 16
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13047): Converted the fan-out from the tri-state buffer "upa:inst1|Yupa[0]" to the node "registro_instruccion:inst8|instruct_int[0]" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 25
+    Warning (13047): Converted the fan-out from the tri-state buffer "Flags:inst5|inst8[7]" to the node "registro_instruccion:inst8|instruct_int[7]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "Flags:inst5|inst8[6]" to the node "registro_instruccion:inst8|instruct_int[6]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "upa:inst1|Yupa[5]" to the node "registro_instruccion:inst8|instruct_int[5]" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 25
+    Warning (13047): Converted the fan-out from the tri-state buffer "Flags:inst5|inst8[4]" to the node "registro_instruccion:inst8|instruct_int[4]" into an OR gate
+    Warning (13047): Converted the fan-out from the tri-state buffer "upa:inst1|Yupa[3]" to the node "registro_instruccion:inst8|instruct_int[3]" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 25
+    Warning (13047): Converted the fan-out from the tri-state buffer "upa:inst1|Yupa[2]" to the node "registro_instruccion:inst8|instruct_int[2]" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 25
+    Warning (13047): Converted the fan-out from the tri-state buffer "upa:inst1|Yupa[1]" to the node "registro_instruccion:inst8|instruct_int[1]" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 25
+    Warning (13047): Converted the fan-out from the tri-state buffer "upa:inst1|Yupa2[7]" to the node "upa:inst1|Mux43" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 26
+    Warning (13047): Converted the fan-out from the tri-state buffer "upa:inst1|Yupa2[6]" to the node "upa:inst1|Mux42" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 26
+    Warning (13047): Converted the fan-out from the tri-state buffer "upa:inst1|Yupa2[5]" to the node "upa:inst1|Mux41" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 26
+    Warning (13047): Converted the fan-out from the tri-state buffer "upa:inst1|Yupa2[4]" to the node "upa:inst1|Mux40" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 26
+    Warning (13047): Converted the fan-out from the tri-state buffer "upa:inst1|Yupa2[3]" to the node "upa:inst1|Mux39" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 26
+    Warning (13047): Converted the fan-out from the tri-state buffer "upa:inst1|Yupa2[2]" to the node "upa:inst1|Mux38" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 26
+    Warning (13047): Converted the fan-out from the tri-state buffer "upa:inst1|Yupa2[1]" to the node "upa:inst1|Mux37" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 26
+    Warning (13047): Converted the fan-out from the tri-state buffer "upa:inst1|Yupa2[0]" to the node "upa:inst1|Mux36" into an OR gate File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 26
+Warning (13012): Latch upa:inst1|R[7] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|S[7] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|R[6] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|S[6] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|R[5] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|S[5] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|R[4] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|S[4] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|R[3] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|S[3] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|R[2] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|S[2] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|R[1] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|S[1] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|R[0] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Warning (13012): Latch upa:inst1|S[0] has unsafe behavior File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/UPA/upa.vhd Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal secuenciador:inst7|registro_sec:inst2|UPA[2] File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 138
+Info (13000): Registers with preset signals will power-up high File: /media/veracrypt1/Libros Ingenieria en Computacion/Organizacion y Arquitectura de computadoras/Proyecto_final_CISC/Secuenciador/registro_sec.vhd Line: 16
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Flag_I" is stuck at GND
+    Warning (13410): Pin "Flag_X" is stuck at GND
+    Warning (13410): Pin "Flag_S" is stuck at GND
+    Warning (13410): Pin "enaY_D" is stuck at VCC
+    Warning (13410): Pin "AP_D[15]" is stuck at GND
+    Warning (13410): Pin "AP_D[14]" is stuck at GND
+    Warning (13410): Pin "AP_D[13]" is stuck at GND
+    Warning (13410): Pin "AP_D[12]" is stuck at GND
+    Warning (13410): Pin "AP_D[11]" is stuck at GND
+    Warning (13410): Pin "AP_D[10]" is stuck at GND
+    Warning (13410): Pin "AP_D[9]" is stuck at GND
+    Warning (13410): Pin "AP_D[8]" is stuck at GND
+    Warning (13410): Pin "AP_D[7]" is stuck at GND
+    Warning (13410): Pin "AP_D[6]" is stuck at GND
+    Warning (13410): Pin "AP_D[5]" is stuck at GND
+    Warning (13410): Pin "AP_D[4]" is stuck at GND
+    Warning (13410): Pin "AP_D[3]" is stuck at GND
+    Warning (13410): Pin "AP_D[2]" is stuck at GND
+    Warning (13410): Pin "AP_D[1]" is stuck at GND
+    Warning (13410): Pin "AP_D[0]" is stuck at GND
+    Warning (13410): Pin "Y_D[15]" is stuck at GND
+    Warning (13410): Pin "Y_D[14]" is stuck at GND
+    Warning (13410): Pin "Y_D[13]" is stuck at GND
+    Warning (13410): Pin "Y_D[12]" is stuck at GND
+    Warning (13410): Pin "Y_D[11]" is stuck at GND
+    Warning (13410): Pin "Y_D[10]" is stuck at GND
+    Warning (13410): Pin "Y_D[9]" is stuck at GND
+    Warning (13410): Pin "Y_D[8]" is stuck at GND
+    Warning (13410): Pin "Y_D[7]" is stuck at GND
+    Warning (13410): Pin "Y_D[6]" is stuck at GND
+    Warning (13410): Pin "Y_D[5]" is stuck at GND
+    Warning (13410): Pin "Y_D[4]" is stuck at GND
+    Warning (13410): Pin "Y_D[3]" is stuck at GND
+    Warning (13410): Pin "Y_D[2]" is stuck at GND
+    Warning (13410): Pin "Y_D[1]" is stuck at GND
+    Warning (13410): Pin "Y_D[0]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "IRQn"
+    Warning (15610): No output dependent on input pin "XIRQn"
+Info (21057): Implemented 1118 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 165 output pins
+    Info (21061): Implemented 949 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 306 warnings
+    Info: Peak virtual memory: 472 megabytes
+    Info: Processing ended: Thu Jan 28 00:44:49 2021
+    Info: Elapsed time: 00:00:37
+    Info: Total CPU time (on all processors): 00:00:54
+
+
