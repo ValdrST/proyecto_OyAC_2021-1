@@ -20,78 +20,78 @@ ARCHITECTURE Behavioral OF mux_regs IS
 BEGIN
 	PROCESS (selregr, ACCA, ACCB, IX, IY, SP, AUX)
 	BEGIN
-		IF selregW = "001" AND selregr "0001" THEN
+		IF (selregW = "001" AND selregr = "0001") THEN
 			D1 <= DatoW;
 			D2 <= ACCB;
-		ELSIF elregW = "100" AND selregr "0001" THEN
+		ELSIF (selregW = "100" AND selregr = "0001") THEN
 			D1 <= ACCA;
 			D2 <= DatoW;
-		ELSIF elregW = "100" AND selregr "0010" THEN
+		ELSIF (selregW = "100" AND selregr = "0010") THEN
 			D1 <= DatoW;
 			D2 <= IX;
-		ELSIF elregW = "010" AND selregr "0010" THEN
+		ELSIF (selregW = "010" AND selregr = "0010") THEN
 			D1 <= ACCB;
 			D2 <= DatoW;
-		ELSIF elregW = "100" AND selregr "0011" THEN
+		ELSIF (selregW = "100" AND selregr = "0011") THEN
 			D1 <= DatoW;
 			D2 <= IY;
-		ELSIF elregW = "011" AND selregr "0011" THEN
+		ELSIF (selregW = "011" AND selregr = "0011") THEN
 			D1 <= ACCB;
 			D2 <= DatoW;
-		ELSIF elregW = "001" AND selregr "0100" THEN
+		ELSIF (selregW = "001" AND selregr = "0100") THEN
 			D1 <= DatoW;
-			D2 <= '0';
-		ELSIF elregW = "100" AND selregr "0101" THEN
+			D2 <= X"0000";
+		ELSIF (selregW = "100" AND selregr = "0101") THEN
 			D1 <= DatoW;
-			D2 <= '0';
-		ELSIF elregW = "001" AND selregr "0110" THEN
+			D2 <= X"0000";
+		ELSIF (selregW = "001" AND selregr = "0110") THEN
 			D1 <= DatoW;
 			D2 <= IX;
-		ELSIF elregW = "010" AND selregr "0110" THEN
+		ELSIF (selregW = "010" AND selregr = "0110") THEN
 			D1 <= ACCA;
 			D2 <= DatoW;
-		ELSIF elregW = "001" AND selregr "0111" THEN
+		ELSIF (selregW = "001" AND selregr = "0111") THEN
 			D1 <= DatoW;
 			D2 <= IY;
-		ELSIF elregW = "011" AND selregr "0111" THEN
+		ELSIF (selregW = "011" AND selregr = "0111") THEN
 			D1 <= ACCA;
 			D2 <= DatoW;
-		ELSIF elregW = "101" AND selregr "1000" THEN
+		ELSIF (selregW = "101" AND selregr = "1000") THEN
 			D1 <= DatoW;
-			D2 <= '0';
-		ELSIF elregW = "010" AND selregr "0010" THEN
-			D1 <= '0';
+			D2 <= X"0000";
+		ELSIF (selregW = "010" AND selregr = "1001") THEN
+			D1 <= X"0000";
 			D2 <= DatoW;
-		ELSIF elregW = "011" AND selregr "0011" THEN
-			D1 <= '0';
+		ELSIF (selregW = "011" AND selregr = "1010") THEN
+			D1 <= X"0000";
 			D2 <= DatoW;
-		ELSIF elregW = "110" AND selregr "0110" THEN
-			D1 <= '0';
+		ELSIF (selregW = "110" AND selregr = "1011") THEN
+			D1 <= X"0000";
 			D2 <= DatoW;
-		ELSIF elregW = "001" AND selregr "0001" THEN
+		ELSIF (selregW = "001" AND selregr = "1100") THEN
 			D1 <= DatoW;
 			D2 <= SP;
-		ELSIF elregW = "110" AND selregr "0110" THEN
+		ELSIF (selregW = "110" AND selregr = "1100") THEN
 			D1 <= ACCA;
 			D2 <= DatoW;
-		ELSIF elregW = "100" AND selregr "0100" THEN
+		ELSIF (selregW = "100" AND selregr = "1101") THEN
 			D1 <= DatoW;
-			D2 <= ACCB;
-		ELSIF elregW = "110" AND selregr "0110" THEN
+			D2 <= SP;
+		ELSIF (selregW = "110" AND selregr = "1101") THEN
+			D1 <= ACCB;
+			D2 <= DatoW;
+		ELSIF (selregW = "010" AND selregr = "1110") THEN
 			D1 <= DatoW;
-			D2 <= ACCB;
-		ELSIF elregW = "010" AND selregr "0010" THEN
+			D2 <= SP;
+		ELSIF (selregW = "110" AND selregr = "1110") THEN
+			D1 <= IX;
+			D2 <= DatoW;
+		ELSIF (selregW = "011" AND selregr = "1111") THEN
 			D1 <= DatoW;
-			D2 <= ACCB;
-		ELSIF elregW = "011" AND selregr "0110" THEN
-			D1 <= DatoW;
-			D2 <= ACCB;
-		ELSIF elregW = "011" AND selregr "0011" THEN
-			D1 <= DatoW;
-			D2 <= ACCB;
-		ELSIF elregW = "011" AND selregr "0110" THEN
-			D1 <= DatoW;
-			D2 <= ACCB;
+			D2 <= SP;
+		ELSIF (selregW = "110" AND selregr = "1111") THEN
+			D1 <= IY;
+			D2 <= DatoW;
 		ELSIF selregr = "0000" THEN
 			D1 <= (OTHERS => '0');
 			D2 <= (OTHERS => '0');

@@ -27,7 +27,7 @@ ARCHITECTURE Behavioral OF memoria_datos IS
 		7 => x"0007",
 		8 => x"0009",
 		9 => x"0001",
-		OTHERS =>  x"0000"
+		OTHERS => x"0000"
 	);
 
 BEGIN

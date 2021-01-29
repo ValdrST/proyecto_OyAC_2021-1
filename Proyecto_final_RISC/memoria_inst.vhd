@@ -28,22 +28,23 @@ BEGIN
 
 	--	attribute ram_init_file : string;
 	--   attribute ram_init_file of mem : signal is "mem_prog.mif";
-	memoria(0) <=  x"00860000";
-	memoria(1) <=  x"00C60000";
-	memoria(2) <=  x"00DE0001";
-	memoria(3) <=  x"00000001";
-	memoria(4) <=  x"00000001";
-	memoria(5) <=  x"00AD000A";
-	memoria(6) <=  x"00AB0000";
-	memoria(7) <=  x"008C0009";
-	memoria(8) <=  x"002F0005";
-	memoria(9) <=  x"0020000D";
-	memoria(10) <=  x"00E00000";
-	memoria(11) <=  x"008C0009";
-	memoria(12) <=  x"002F0005";
-	memoria(13) <=  x"001B0000";
-	memoria(14) <=  x"00970000";
-	memoria(15) <=  x"0020000F";
+	memoria(0) <= x"00860000";
+	memoria(1) <= x"00C600FF";
+	memoria(2) <= x"00CE0000";
+	memoria(3) <= x"00A50000";
+	memoria(4) <= x"00250000";
+	memoria(5) <= x"007E000B";
+	memoria(6) <= x"00AB0000";
+	memoria(7) <= x"008C0008";
+	memoria(8) <= x"00270000";
+	memoria(9) <= x"00730003";
+	memoria(10) <= x"0073000f";
+	memoria(11) <= x"00E00000";
+	memoria(12) <= x"008C0008";
+	memoria(13) <= x"00270000";
+	memoria(14) <= x"007E0003";
+	memoria(15) <= x"00AD0000";
+	memoria(16) <= x"000C0000";
 
 	PROCESS (direccion)
 	BEGIN
