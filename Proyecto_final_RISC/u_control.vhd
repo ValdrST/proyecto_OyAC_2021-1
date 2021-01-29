@@ -38,7 +38,7 @@ BEGIN
 				cin <= '0';
 				sels2 <= '0';
 				seldato <= '1';
-				selsrc <= "100";
+				selsrc <= "011";
 				seldir <= "00";
 				selop <= X"4";
 				selresult <= "01";
@@ -58,7 +58,7 @@ BEGIN
 				cin <= '0';
 				sels2 <= '0';
 				seldato <= '1';
-				selsrc <= "100";
+				selsrc <= "011";
 				seldir <= "00";
 				selop <= X"4";
 				selresult <= "01";
@@ -71,14 +71,14 @@ BEGIN
 				memw <= '0';
 				seldirw <= "00";
 
-			WHEN X"00CE" => --LDX(DIR)
-				selregr <= X"E";
+			WHEN X"00CE" => --LDX(IMM)
+				selregr <= X"0";
 				sels1 <= '0';
 				sr <= '1';
 				cin <= '0';
 				sels2 <= '0';
 				seldato <= '1';
-				selsrc <= "010";
+				selsrc <= "011";
 				seldir <= "01";
 				selop <= X"4";
 				selresult <= "01";
@@ -88,26 +88,6 @@ BEGIN
 				selbranch <= "000";
 				vf <= '1';
 				selregw <= "010";
-				memw <= '0';
-				seldirw <= "00";
-
-			WHEN X"00FF" => --BRPARX
-				selregr <= X"9";
-				sels1 <= '0';
-				sr <= '1';
-				cin <= '0';
-				sels2 <= '0';
-				seldato <= '1';
-				selsrc <= "101";
-				seldir <= "00";
-				selop <= X"3";
-				selresult <= "01";
-				selc <= '1';
-				cadj <= '0';
-				selfalgs <= X"0";
-				selbranch <= "010";
-				vf <= '0';
-				selregw <= "000";
 				memw <= '0';
 				seldirw <= "00";
 
@@ -122,7 +102,7 @@ BEGIN
 				seldir <= "00";
 				selop <= X"1";
 				selresult <= "01";
-				selc <= '0';
+				selc <= '1';
 				cadj <= '0';
 				selfalgs <= X"2";
 				selbranch <= "000";
@@ -142,7 +122,7 @@ BEGIN
 				seldir <= "00";
 				selop <= X"1";
 				selresult <= "01";
-				selc <= '0';
+				selc <= '1';
 				cadj <= '0';
 				selfalgs <= X"2";
 				selbranch <= "000";
@@ -152,18 +132,18 @@ BEGIN
 				seldirw <= "00";
 
 			WHEN X"008C" => --CPX(IMM)
-				selregr <= X"9";
+				selregr <= X"E";
 				sels1 <= '1';
 				sr <= '0';
 				cin <= '0';
 				sels2 <= '0';
 				seldato <= '1';
 				selsrc <= "011";
-				seldir <= "00";
-				selop <= X"1";
+				seldir <= "01";
+				selop <= X"2";
 				selresult <= "00";
 				selc <= '1';
-				cadj <= '0';
+				cadj <= '1';
 				selfalgs <= X"3";
 				selbranch <= "000";
 				vf <= '1';
@@ -191,46 +171,6 @@ BEGIN
 				memw <= '0';
 				seldirw <= "00";
 
-			WHEN X"001B" => --ABA
-				selregr <= X"1";
-				sels1 <= '0';
-				sr <= '1';
-				cin <= '0';
-				sels2 <= '0';
-				seldato <= '1';
-				selsrc <= "001";
-				seldir <= "00";
-				selop <= X"1";
-				selresult <= "01";
-				selc <= '1';
-				cadj <= '0';
-				selfalgs <= X"2";
-				selbranch <= "000";
-				vf <= '1';
-				selregw <= "001";
-				memw <= '0';
-				seldirw <= "00";
-
-			WHEN X"0097" => --STAA(DIR)
-				selregr <= X"4";
-				sels1 <= '1';
-				sr <= '1';
-				cin <= '0';
-				sels2 <= '0';
-				seldato <= '1';
-				selsrc <= "001";
-				seldir <= "00";
-				selop <= X"4";
-				selresult <= "01";
-				selc <= '1';
-				cadj <= '0';
-				selfalgs <= X"1";
-				selbranch <= "000";
-				vf <= '1';
-				selregw <= "000";
-				memw <= '1';
-				seldirw <= "10";
-
 			WHEN X"0020" => --BRA
 				selregr <= X"0";
 				sels1 <= '0';
@@ -251,14 +191,14 @@ BEGIN
 				memw <= '0';
 				seldirw <= "00";
 
-			WHEN X"0080" => --INX
-				selregr <= X"9";
+			WHEN X"0080" => --INCX
+				selregr <= X"E";
 				sels1 <= '0';
 				sr <= '1';
 				cin <= '0';
 				sels2 <= '0';
 				seldato <= '1';
-				selsrc <= "001";
+				selsrc <= "011";
 				seldir <= "00";
 				selop <= X"1";
 				selresult <= "01";

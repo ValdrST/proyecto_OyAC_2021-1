@@ -7,9 +7,11 @@ entity reg_acoplo_4 is
 			selregwi : in STD_LOGIC_VECTOR (2 downto 0);
 			memwi : in STD_LOGIC;
 			seldirwi : in STD_LOGIC_VECTOR (1 downto 0);
+			EXFlush : in STD_LOGIC;
 			selregwo : out STD_LOGIC_VECTOR (2 downto 0);
 			memwo : out STD_LOGIC;
-			seldirwo : out STD_LOGIC_VECTOR (1 downto 0));
+			seldirwo : out STD_LOGIC_VECTOR (1 downto 0)
+			);
 end reg_acoplo_4;
 
 architecture Behavioral of reg_acoplo_4 is
