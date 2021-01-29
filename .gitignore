@@ -1,2 +1,10 @@
 *.bak
-simulation/
+*.rdb
+*/incremental_db/*
+*/output_files/*
+*/simulation/*
+greybox_tmp/*
+*/db/*
+.qpf
+*.qsf
+*.qws
