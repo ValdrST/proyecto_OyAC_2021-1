@@ -153,7 +153,7 @@ if __name__  == "__main__":
         "cin": "0",
         "sels2": "0",
         "seldato": "1",
-        "selsrc": "4",
+        "selsrc": "3",
         "seldir": "0",
         "selop": "4",
         "selresult": "1",
@@ -175,7 +175,7 @@ if __name__  == "__main__":
         "cin": "0",
         "sels2": "0",
         "seldato": "1",
-        "selsrc": "4",
+        "selsrc": "3",
         "seldir": "0",
         "selop": "4",
         "selresult": "1",
@@ -212,28 +212,6 @@ if __name__  == "__main__":
     }, "LDX(DIR)")
 
     instrucciones += traducir_dict({
-        "inst": "FF",
-        "selregr": "9",
-        "sels1": "0",
-        "sr": "1",
-        "cin": "0",
-        "sels2": "0",
-        "seldato": "1",
-        "selsrc": "5",
-        "seldir": "0",
-        "selop": "3",
-        "selresult": "1",
-        "selc": "1",
-        "cadj": "0",
-        "selfalgs": "0",
-        "selbranch": "2",
-        "vf": "0",
-        "selregw": "0",
-        "memw": "0",
-        "seldirw": "0"
-    }, "BRPARX")
-
-    instrucciones += traducir_dict({
         "inst": "AB",
         "selregr": "6",
         "sels1": "1",
@@ -245,7 +223,7 @@ if __name__  == "__main__":
         "seldir": "0",
         "selop": "1",
         "selresult": "1",
-        "selc": "0",
+        "selc": "1",
         "cadj": "0",
         "selfalgs": "2",
         "selbranch": "0",
@@ -267,7 +245,7 @@ if __name__  == "__main__":
         "seldir": "0",
         "selop": "1",
         "selresult": "1",
-        "selc": "0",
+        "selc": "1",
         "cadj": "0",
         "selfalgs": "2",
         "selbranch": "0",
@@ -279,18 +257,18 @@ if __name__  == "__main__":
 
     instrucciones += traducir_dict({
         "inst": "8C",
-        "selregr": "9",
+        "selregr": "E",
         "sels1": "1",
         "sr": "0",
         "cin": "0",
         "sels2": "0",
         "seldato": "1",
         "selsrc": "3",
-        "seldir": "0",
-        "selop": "1",
+        "seldir": "1",
+        "selop": "2",
         "selresult": "0",
         "selc": "1",
-        "cadj": "0",
+        "cadj": "1",
         "selfalgs": "3",
         "selbranch": "0",
         "vf": "1",
@@ -322,50 +300,6 @@ if __name__  == "__main__":
     }, "BLE")
 
     instrucciones += traducir_dict({
-        "inst": "1B",
-        "selregr": "1",
-        "sels1": "0",
-        "sr": "1",
-        "cin": "0",
-        "sels2": "0",
-        "seldato": "1",
-        "selsrc": "1",
-        "seldir": "0",
-        "selop": "1",
-        "selresult": "1",
-        "selc": "1",
-        "cadj": "0",
-        "selfalgs": "2",
-        "selbranch": "0",
-        "vf": "1",
-        "selregw": "1",
-        "memw": "0",
-        "seldirw": "0"
-    }, "ABA")
-
-    instrucciones += traducir_dict({
-        "inst": "97",
-        "selregr": "4",
-        "sels1": "1",
-        "sr": "1",
-        "cin": "0",
-        "sels2": "0",
-        "seldato": "1",
-        "selsrc": "1",
-        "seldir": "0",
-        "selop": "4",
-        "selresult": "1",
-        "selc": "1",
-        "cadj": "0",
-        "selfalgs": "1",
-        "selbranch": "0",
-        "vf": "1",
-        "selregw": "0",
-        "memw": "1",
-        "seldirw": "2"
-    }, "STAA(DIR)")
-
-    instrucciones += traducir_dict({
         "inst": "20",
         "selregr": "0",
         "sels1": "0",
@@ -389,13 +323,13 @@ if __name__  == "__main__":
 
     instrucciones += traducir_dict({
         "inst": "80",
-        "selregr": "9",
+        "selregr": "E",
         "sels1": "0",
         "sr": "1",
         "cin": "0",
         "sels2": "0",
         "seldato": "1",
-        "selsrc": "1",
+        "selsrc": "3",
         "seldir": "0",
         "selop": "1",
         "selresult": "1",
@@ -407,7 +341,7 @@ if __name__  == "__main__":
         "selregw": "2",
         "memw": "0",
         "seldirw": "0"
-    }, "INX")
+    }, "INCX")
 
     instrucciones += traducir_dict({
         "inst": "01",
