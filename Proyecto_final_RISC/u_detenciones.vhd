@@ -57,8 +57,7 @@ BEGIN
 		selregw <= "000";
 		memw <= '0';
 		seldirw <= "00";
-		--Condiciones para detectar los riesgos por accesos múltiples a memoria y los riesgos
-		--por saltos, y señales de salida generadas por la unidad de detenciones para eliminar estos riesgos.
+		
 		IF (selsrcc = X"2" OR selsrcc = X"4" OR selsrcc = X"6") AND memWc = '1' AND Branch = '0' THEN
 			PCWrite <= '0';
 			ifidwrite <= '0';
@@ -71,6 +70,42 @@ BEGIN
 			selD <= '0';
 			selctrl <= '1';
 			EXFlush <= '1';
+		ELSIF selsrcc = X"2" AND memWc = '1' THEN
+			PCWrite <= '0';
+			ifidwrite <= '0';
+			selD <= '1';
+			selctrl <= '1';
+			EXFlush <= '0';
+		ELSIF selsrcc = X"4" AND memWc = '1' THEN
+			PCWrite <= '0';
+			ifidwrite <= '0';
+			selD <= '1';
+			selctrl <= '1';
+			EXFlush <= '0';
+		ELSIF selsrcc = X"6" AND memWc = '1' THEN
+			PCWrite <= '0';
+			ifidwrite <= '0';
+			selD <= '1';
+			selctrl <= '1';
+			EXFlush <= '0';
+		ELSIF selsrcc = X"2" AND memWc = '0' THEN
+			PCWrite <= '1';
+			ifidwrite <= '1';
+			selD <= '0';
+			selctrl <= '0';
+			EXFlush <= '0';
+		ELSIF selsrcc = X"4" AND memWc = '0' THEN
+			PCWrite <= '1';
+			ifidwrite <= '1';
+			selD <= '0';
+			selctrl <= '0';
+			EXFlush <= '0';
+		ELSIF selsrcc = X"6" AND memWc = '0' THEN
+			PCWrite <= '1';
+			ifidwrite <= '1';
+			selD <= '0';
+			selctrl <= '0';
+			EXFlush <= '0';
 		ELSE
 			PCWrite <= '1';
 			ifidwrite <= '1';

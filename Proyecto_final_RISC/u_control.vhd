@@ -120,7 +120,7 @@ BEGIN
 				seldato <= '1';
 				selsrc <= "010";
 				seldir <= "00";
-				selop <= X"1";
+				selop <= X"2";
 				selresult <= "01";
 				selc <= '1';
 				cadj <= '0';
@@ -238,7 +238,7 @@ BEGIN
 				cin <= '0';
 				sels2 <= '0';
 				seldato <= '0';
-				selsrc <= "011";
+				selsrc <= "100";
 				seldir <= "00";
 				selop <= X"4";
 				selresult <= "01";
@@ -246,7 +246,7 @@ BEGIN
 				cadj <= '0';
 				selfalgs <= X"0";
 				selbranch <= "000";
-				vf <= '1';
+				vf <= '0';
 				selregw <= "000";
 				memw <= '0';
 				seldirw <= "00";
@@ -258,13 +258,13 @@ BEGIN
 				cin <= '0';
 				sels2 <= '0';
 				seldato <= '1';
-				selsrc <= "010";
+				selsrc <= "100";
 				seldir <= "00";
 				selop <= X"B";
 				selresult <= "00";
-				selc <= '1';
-				cadj <= '1';
-				selfalgs <= X"1";
+				selc <= '0';
+				cadj <= '0';
+				selfalgs <= X"3";
 				selbranch <= "000";
 				vf <= '1';
 				selregw <= "000";
